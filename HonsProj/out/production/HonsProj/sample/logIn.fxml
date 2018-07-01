@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+
+
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<MigPane fx:controller="sample.logInCont" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+    <MigPane prefHeight="200.0" prefWidth="200.0" MigPane.cc="dock north" />
+    <MigPane prefHeight="200.0" prefWidth="200.0" MigPane.cc="dock east" />
+    <MigPane layout="fill, wrap" prefHeight="200.0" prefWidth="200.0" MigPane.cc="dock center">
+        <children>
+            <JFXTextField fx:id="txtUname" labelFloat="true" promptText="Enter Username" MigPane.cc="spanx, growx, gapy 30" />
+            <JFXComboBox fx:id="cmbType" prefWidth="150.0" promptText="Select User Type" MigPane.cc="spanx, growx, gapy 30" />
+            <JFXPasswordField fx:id="txtPass" labelFloat="true" promptText="Enter Password" MigPane.cc="spanx, growx, gapy 30" />
+            <JFXButton fx:id="btnSignIn" mnemonicParsing="false" style="-fx-background-color: #85c1e9;" text="Sign In" MigPane.cc="spanx, growx, gapy 30" />
+            <MigPane layout="fill, wrap2" prefHeight="30.0" prefWidth="30.0" MigPane.cc="spanx, growx, gapy 30">
+                <children>
+                    <JFXButton fx:id="lblForgot" text="Forgot your password?" MigPane.cc="dock west"  />
+                    <JFXButton fx:id="lblSignIn" text="Sign Up" MigPane.cc="dock east" />
+                </children></MigPane>
+        </children></MigPane>
+    <MigPane prefHeight="200.0" prefWidth="200.0" MigPane.cc="dock west" />
+    <MigPane prefHeight="200.0" prefWidth="200.0" MigPane.cc="dock south" />
+</MigPane>
