@@ -179,11 +179,10 @@ public class signUpCont implements Initializable {
             e.printStackTrace();
         }
         if(true){
-            String connectionString="";
+            String connectionString="jdbc:sqlserver://postgrad.nmmu.ac.za;database=SolAssist";
 
             try {
-                con=DriverManager.getConnection(connectionString);
-
+                con=DriverManager.getConnection(connectionString,"solassistuser","Dfjf8d02fdjjJ");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
