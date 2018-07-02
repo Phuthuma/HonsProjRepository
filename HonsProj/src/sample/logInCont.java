@@ -13,17 +13,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class logInCont implements Initializable {
     //variables
+    Connection con=null;
+
     private ArrayList<String>types;
     private ObservableList<String> obsTypes;
 
@@ -43,6 +47,7 @@ public class logInCont implements Initializable {
         obsTypes.add("Lecturer");
         obsTypes.add("System Administrator");
         cmbType.setItems(obsTypes);
+
         setValidations();
         lblSignIn.setOnAction(event -> {
             Parent addRoot = null;
@@ -84,6 +89,68 @@ public class logInCont implements Initializable {
             stage.setHeight(750.0);
             stage.showAndWait();
         });
+
+        btnSignIn.setOnAction(event -> {
+            //student
+            if(cmbType.getSelectionModel().getSelectedItem().matches(obsTypes.get(0))){
+
+            }
+            //lecturer
+            else if(cmbType.getSelectionModel().getSelectedItem().matches(obsTypes.get(1))){
+                connect();
+                String sql="select Password from Lecturer where LectCode = ?";
+                try {
+                    PreparedStatement stmt=con.prepareStatement(sql);
+                    stmt.setString(1,txtUname.getText());
+                    ResultSet result=stmt.executeQuery();
+                    if(result.next()){
+                        String pass=result.getString("Password");
+                        if(pass.matches(txtPass.getText())){
+                            System.out.println("correct password");
+                            FXMLLoader loader=new FXMLLoader();
+                            loader.setLocation(getClass().getResource("lecturerTabs.fxml"));
+                            try {
+                                Parent parent=loader.load();
+                                lecturerTabsCont cont=loader.<lecturerTabsCont>getController();
+                                cont.setCode(txtUname.getText());
+                                cont.initialize(loader.getLocation(),loader.getResources());
+                                Stage newStage=new Stage();
+                                newStage.setScene(new Scene(parent));
+                                newStage.setHeight(800.0);
+                                newStage.setWidth(800.0);
+                                Stage primeStage= (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                primeStage.close();
+                                newStage.show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }else {
+                            Alert alert=new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText("Invalid password!");
+                            alert.showAndWait();
+                        }
+                    }else {
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Invalid Username!");
+                        alert.showAndWait();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                disconnect();
+            }
+            //System Administrator
+            else if(cmbType.getSelectionModel().getSelectedItem().matches(obsTypes.get(2))) {
+
+            }
+            //validation error
+            else {
+
+            }
+        });
     }
     private void setValidations(){
         RequiredFieldValidator val=new RequiredFieldValidator();
@@ -100,5 +167,30 @@ public class logInCont implements Initializable {
                 txtPass.validate();
             }
         });
+    }
+
+    private void connect(){
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(true){
+            String connectionString="jdbc:sqlserver://postgrad.nmmu.ac.za;database=SolAssist";
+
+            try {
+                con=DriverManager.getConnection(connectionString,"solassistuser","Dfjf8d02fdjjJ");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private void disconnect(){
+        try {
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

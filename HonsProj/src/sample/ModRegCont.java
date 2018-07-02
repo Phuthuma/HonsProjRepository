@@ -143,7 +143,6 @@ public class ModRegCont implements Initializable {
             }
             disconnect();
         });
-
         btnNewMod.setOnAction(event -> {
             Parent addRoot = null;
             try {
