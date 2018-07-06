@@ -184,103 +184,120 @@
     <database id="60" parent="1" name="NMBS">
       <ObjectId>59</ObjectId>
     </database>
-    <schema id="61" parent="2" name="dbo">
+    <database id="61" parent="1" name="AnningSAMS">
+      <ObjectId>60</ObjectId>
+    </database>
+    <database id="62" parent="1" name="PlayABAP">
+      <ObjectId>61</ObjectId>
+    </database>
+    <database id="63" parent="1" name="wasterecycle">
+      <ObjectId>62</ObjectId>
+    </database>
+    <database id="64" parent="1" name="watermate">
+      <ObjectId>63</ObjectId>
+    </database>
+    <schema id="65" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2018-06-28.23:22:58.510</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-07-06.15:42:58.577</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
       <DescriptionsCheckSum>2092444413</DescriptionsCheckSum>
     </schema>
-    <schema id="62" parent="2" name="guest">
+    <schema id="66" parent="2" name="guest">
       <ObjectId>2</ObjectId>
     </schema>
-    <schema id="63" parent="2" name="INFORMATION_SCHEMA">
+    <schema id="67" parent="2" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
     </schema>
-    <schema id="64" parent="2" name="sys">
+    <schema id="68" parent="2" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <schema id="65" parent="2" name="db_owner">
+    <schema id="69" parent="2" name="db_owner">
       <ObjectId>16384</ObjectId>
     </schema>
-    <schema id="66" parent="2" name="db_accessadmin">
+    <schema id="70" parent="2" name="db_accessadmin">
       <ObjectId>16385</ObjectId>
     </schema>
-    <schema id="67" parent="2" name="db_securityadmin">
+    <schema id="71" parent="2" name="db_securityadmin">
       <ObjectId>16386</ObjectId>
     </schema>
-    <schema id="68" parent="2" name="db_ddladmin">
+    <schema id="72" parent="2" name="db_ddladmin">
       <ObjectId>16387</ObjectId>
     </schema>
-    <schema id="69" parent="2" name="db_backupoperator">
+    <schema id="73" parent="2" name="db_backupoperator">
       <ObjectId>16389</ObjectId>
     </schema>
-    <schema id="70" parent="2" name="db_datareader">
+    <schema id="74" parent="2" name="db_datareader">
       <ObjectId>16390</ObjectId>
     </schema>
-    <schema id="71" parent="2" name="db_datawriter">
+    <schema id="75" parent="2" name="db_datawriter">
       <ObjectId>16391</ObjectId>
     </schema>
-    <schema id="72" parent="2" name="db_denydatareader">
+    <schema id="76" parent="2" name="db_denydatareader">
       <ObjectId>16392</ObjectId>
     </schema>
-    <schema id="73" parent="2" name="db_denydatawriter">
+    <schema id="77" parent="2" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
     </schema>
-    <table id="74" parent="61" name="Lecturer">
+    <table id="78" parent="65" name="Lecturer">
       <ObjectId>2121058592</ObjectId>
       <Comment>stores lecturer related data</Comment>
       <CreatedTimestamp>2018-06-18.14:36:22.300</CreatedTimestamp>
       <ModifiedTimestamp>2018-06-28.23:22:04.173</ModifiedTimestamp>
     </table>
-    <table id="75" parent="61" name="Module">
+    <table id="79" parent="65" name="Module">
       <ObjectId>53575229</ObjectId>
       <CreatedTimestamp>2018-06-18.15:36:39.997</CreatedTimestamp>
-      <ModifiedTimestamp>2018-06-26.14:42:02.933</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-07-06.15:42:58.487</ModifiedTimestamp>
     </table>
-    <table id="76" parent="61" name="Student">
+    <table id="80" parent="65" name="Student">
       <ObjectId>133575514</ObjectId>
       <CreatedTimestamp>2018-06-28.15:38:18.323</CreatedTimestamp>
       <ModifiedTimestamp>2018-06-28.23:22:57.907</ModifiedTimestamp>
     </table>
-    <column id="77" parent="74" name="LectCode">
+    <table id="81" parent="65" name="Task">
+      <ObjectId>373576369</ObjectId>
+      <CreatedTimestamp>2018-07-06.15:42:15.523</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-06.15:42:58.487</ModifiedTimestamp>
+    </table>
+    <column id="82" parent="78" name="LectCode">
       <Position>1</Position>
       <DataType>varchar(20 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="78" parent="74" name="Name">
+    <column id="83" parent="78" name="Name">
       <Position>2</Position>
       <DataType>char(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="74" name="Email">
+    <column id="84" parent="78" name="Email">
       <Position>3</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="74" name="Password">
+    <column id="85" parent="78" name="Password">
       <Position>5</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="81" parent="74" name="PK__Lecturer__AD53A8FC00551192">
+    <index id="86" parent="78" name="PK__Lecturer__AD53A8FC00551192">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>LectCode</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="82" parent="74" name="Lecturer_LectCode_uindex">
+    <index id="87" parent="78" name="Lecturer_LectCode_uindex">
       <Position>2</Position>
       <ColNames>LectCode</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="83" parent="74" name="Lecturer_Email_uindex">
+    <index id="88" parent="78" name="Lecturer_Email_uindex">
       <Position>3</Position>
       <ColNames>Email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="84" parent="74" name="PK__Lecturer__AD53A8FC00551192">
+    <key id="89" parent="78" name="PK__Lecturer__AD53A8FC00551192">
       <ObjectId>21575115</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-06-18.14:36:22.300</CreatedTimestamp>
@@ -289,39 +306,39 @@
       <UnderlyingIndexName>PK__Lecturer__AD53A8FC00551192</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="85" parent="75" name="ModCode">
+    <column id="90" parent="79" name="ModCode">
       <Position>1</Position>
       <DataType>varchar(10 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="86" parent="75" name="ModName">
+    <column id="91" parent="79" name="ModName">
       <Position>2</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="87" parent="75" name="ModLevel">
+    <column id="92" parent="79" name="ModLevel">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="88" parent="75" name="LectCode">
+    <column id="93" parent="79" name="LectCode">
       <Position>4</Position>
       <DataType>varchar(20 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="89" parent="75" name="PK__Module__116BEA610519C6AF">
+    <index id="94" parent="79" name="PK__Module__116BEA610519C6AF">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ModCode</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="90" parent="75" name="Module_ModCode_uindex">
+    <index id="95" parent="79" name="Module_ModCode_uindex">
       <Position>2</Position>
       <ColNames>ModCode</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="91" parent="75" name="PK__Module__116BEA610519C6AF">
+    <key id="96" parent="79" name="PK__Module__116BEA610519C6AF">
       <ObjectId>101575400</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-06-18.15:36:40</CreatedTimestamp>
@@ -330,7 +347,7 @@
       <UnderlyingIndexName>PK__Module__116BEA610519C6AF</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="92" parent="75" name="FK__Module__LectCode__07020F21">
+    <foreign-key id="97" parent="79" name="FK__Module__LectCode__07020F21">
       <ObjectId>117575457</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-06-18.15:36:40</CreatedTimestamp>
@@ -342,49 +359,49 @@
       <RefKeyName>PK__Lecturer__AD53A8FC00551192</RefKeyName>
       <RefColNames>LectCode</RefColNames>
     </foreign-key>
-    <column id="93" parent="76" name="StudNo">
+    <column id="98" parent="80" name="StudNo">
       <Position>1</Position>
       <DataType>varchar(12 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="94" parent="76" name="StudName">
+    <column id="99" parent="80" name="StudName">
       <Position>2</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="95" parent="76" name="StudMail">
+    <column id="100" parent="80" name="StudMail">
       <Position>3</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="96" parent="76" name="Course">
+    <column id="101" parent="80" name="Course">
       <Position>4</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="97" parent="76" name="Password">
+    <column id="102" parent="80" name="Password">
       <Position>6</Position>
       <DataType>varchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="98" parent="76" name="PK__table_na__F5FF60DB09DE7BCC">
+    <index id="103" parent="80" name="PK__table_na__F5FF60DB09DE7BCC">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>StudNo</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="99" parent="76" name="table_name_StudNo_uindex">
+    <index id="104" parent="80" name="table_name_StudNo_uindex">
       <Position>2</Position>
       <ColNames>StudNo</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="100" parent="76" name="Student_StudMail_uindex">
+    <index id="105" parent="80" name="Student_StudMail_uindex">
       <Position>3</Position>
       <ColNames>StudMail</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="101" parent="76" name="PK__table_na__F5FF60DB09DE7BCC">
+    <key id="106" parent="80" name="PK__table_na__F5FF60DB09DE7BCC">
       <ObjectId>181575685</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-06-28.15:38:18.323</CreatedTimestamp>
@@ -393,5 +410,57 @@
       <UnderlyingIndexName>PK__table_na__F5FF60DB09DE7BCC</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
+    <column id="107" parent="81" name="TaskCode">
+      <Position>1</Position>
+      <DataType>varchar(50 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="81" name="TaskNo">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="81" name="TaskTitle">
+      <Position>3</Position>
+      <DataType>varchar(50 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="81" name="ModCode">
+      <Position>4</Position>
+      <DataType>varchar(10 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="111" parent="81" name="PK__Task__251D0698182C9B23">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TaskCode</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="112" parent="81" name="Task_TaskCode_uindex">
+      <Position>2</Position>
+      <ColNames>TaskCode</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="113" parent="81" name="PK__Task__251D0698182C9B23">
+      <ObjectId>421576540</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-07-06.15:42:15.527</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-06.15:42:15.527</ModifiedTimestamp>
+      <ColNames>TaskCode</ColNames>
+      <UnderlyingIndexName>PK__Task__251D0698182C9B23</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="114" parent="81" name="Task___fk">
+      <ObjectId>437576597</ObjectId>
+      <CreatedTimestamp>2018-07-06.15:42:58.487</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-06.15:42:58.487</ModifiedTimestamp>
+      <ColNames>ModCode</ColNames>
+      <RefTableId>53575229</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>Module</RefTableName>
+      <RefKeyName>PK__Module__116BEA610519C6AF</RefKeyName>
+      <RefColNames>ModCode</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

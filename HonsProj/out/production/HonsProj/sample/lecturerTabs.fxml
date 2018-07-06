@@ -13,16 +13,29 @@
 
 <MigPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.lecturerTabsCont">
     <children>
-        <MigPane prefHeight="800.0" prefWidth="800.0">
+        <MigPane prefHeight="800.0" prefWidth="800.0" layout="fill">
             <children>
-                <JFXTabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                <JFXTabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" MigPane.cc="span,grow">
                     <tabs>
                         <Tab text="Modules">
                             <content>
-                                <MigPane layout="fill" prefHeight="600.0" prefWidth="400.0" MigPane.cc="spany,growy">
+                                <MigPane layout="fill, wrap2" prefHeight="600.0" prefWidth="400.0">
                                     <children>
-                                        <JFXListView fx:id="lstMods" prefHeight="600.0" prefWidth="400.0" MigPane.cc="wrap" />
-                                        <Label fx:id="lblCode" text="Label" visible="false"/>
+                                        <MigPane layout="fill,wrap" MigPane.cc="dock west" prefHeight="600.0" prefWidth="400.0">
+                                            <children>
+                                                <JFXListView fx:id="lstMods" prefHeight="600.0" prefWidth="400.0" MigPane.cc="growy,spany"/>
+                                            </children>
+                                        </MigPane>
+                                        <MigPane layout="fill,wrap" MigPane.cc="dock east" prefHeight="600.0" prefWidth="400.0">
+                                            <children>
+                                                <JFXListView fx:id="lstTasks"  prefHeight="560.0" prefWidth="400.0" />
+                                                <MigPane layout="fill, wrap2" prefHeight="30.0" prefWidth="400.0">
+                                                    <JFXButton fx:id="btnNewTask" buttonType="RAISED" mnemonicParsing="false" style="-fx-background-color: #82e0aa;" text="New Task" MigPane.cc="dock west" />
+                                                    <JFXButton fx:id="btnDelTask" buttonType="RAISED" mnemonicParsing="false" style="-fx-background-color: e36953;" text="Delete Task" MigPane.cc="dock east" />
+                                                </MigPane>
+                                            </children>
+                                        </MigPane>
+                                        <Label fx:id="lblCode" text="Label" visible="false" />
                                     </children>
                                 </MigPane>
                             </content>

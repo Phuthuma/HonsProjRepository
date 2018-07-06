@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeView?>
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+
+
+<MigPane layout="fill,wrap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.knowledgeGraphCont">
+   <children>
+      <JFXTreeView fx:id="treeKnow" prefHeight="600.0" prefWidth="600.0" MigPane.cc="span,grow" />
+   </children>
+</MigPane>

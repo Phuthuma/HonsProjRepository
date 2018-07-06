@@ -1,6 +1,10 @@
 package sample;
 
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
 
 public class Module {
     //variables
@@ -8,6 +12,8 @@ public class Module {
     private StringProperty modName;
     private IntegerProperty modLevel;
     private StringProperty lectCode;
+    private ArrayList<Task>tasks;
+    private ObservableList<Task>obsTasks;
 
     //constructors
     public Module(String code, String name,Integer level, String lectCode){
@@ -15,6 +21,9 @@ public class Module {
         this.modName=new SimpleStringProperty(name);
         this.modLevel=new SimpleIntegerProperty(level);
         this.lectCode=new SimpleStringProperty(lectCode);
+
+        tasks=new ArrayList<>();
+        obsTasks=FXCollections.observableList(tasks);
     }
 
     //methods
@@ -38,5 +47,12 @@ public class Module {
     }
     public StringProperty lectCodeProperty() {
         return lectCode;
+    }
+
+    public void addTask(Task task){
+        obsTasks.add(task);
+    }
+    public ObservableList<Task> getObsTasks() {
+        return obsTasks;
     }
 }

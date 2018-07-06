@@ -185,8 +185,6 @@ public class ModRegCont implements Initializable {
             }else{
                 delAlert.close();
             }
-
-
         });
 
         lstMods.getSelectionModel().selectFirst();
