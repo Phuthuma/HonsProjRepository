@@ -61,24 +61,23 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
 
         MenuItem copyMenuItem=new MenuItem("Copy");
         copyMenuItem.setOnAction(event -> {
-
-            copyItem.setValue(getItem());
-            copyItem.getChildren().addAll(getTreeItem().getChildren());
+            copyItem.getChildren().clear();
+            copyItem.setValue(getTreeView().getSelectionModel().getSelectedItem().getValue());
+            copyItem.getChildren().addAll(getTreeView().getSelectionModel().getSelectedItem().getChildren());
         });
         menu.getItems().addAll(copyMenuItem);
 
         MenuItem pastItem=new MenuItem("Paste");
         pastItem.setOnAction(event -> {
-            if (copyItem != null) {
-                getTreeItem().setValue(copyItem.getValue());
-                getTreeItem().getChildren().removeAll();
-                if(copyItem.getChildren().contains(getTreeItem())){
-                    copyItem.getChildren().remove(getTreeItem());
-                    addChildren(copyItem,getTreeItem());
-                }else {
-                    addChildren(copyItem,getTreeItem());
-                }
-
+            if ((copyItem != null)&&(!copyItem.getChildren().contains(getTreeItem()))) {
+                getTreeView().getSelectionModel().getSelectedItem().getChildren().clear();
+                getTreeView().getSelectionModel().getSelectedItem().setValue(copyItem.getValue());
+                getTreeView().getSelectionModel().getSelectedItem().getChildren().addAll(copyItem.getChildren());
+            }else {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Can't copy parent to child!");
+                alert.showAndWait();
             }
         });
         menu.getItems().add(pastItem);

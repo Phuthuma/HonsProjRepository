@@ -95,7 +95,7 @@
       <file leaf-file-name="knowledgeGraphCont.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="221">
               <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -107,16 +107,17 @@
       <file leaf-file-name="TextFieldTreeCellImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="73" column="56" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+            <state relative-caret-position="323">
+              <caret line="78" column="63" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
                 <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
                 <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
                 <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
                 <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="e#5068#5069#0" expanded="true" />
-                <element signature="e#5131#5132#0" expanded="true" />
+                <element signature="e#5113#5114#0" expanded="true" />
+                <element signature="e#5176#5177#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,8 +126,8 @@
       <file leaf-file-name="forgotPassCont.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/forgotPassCont.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="137" column="43" lean-forward="true" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
+            <state relative-caret-position="432">
+              <caret line="136" column="41" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -240,6 +241,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,7 +264,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -441,14 +442,16 @@
       <workItem from="1531151922317" duration="708000" />
       <workItem from="1531153763418" duration="7058000" />
       <workItem from="1531207641606" duration="4794000" />
+      <workItem from="1531242670740" duration="2526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247127000" />
+    <option name="totallyTimeSpent" value="249653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -464,7 +467,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16577825" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1673774" />
       <window_info anchor="right" id="Database" order="3" weight="0.14110824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -562,12 +565,13 @@
           <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="e#5068#5069#0" expanded="true" />
-            <element signature="e#5131#5132#0" expanded="true" />
+            <element signature="e#5113#5114#0" expanded="true" />
+            <element signature="e#5176#5177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -889,7 +893,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="221">
           <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -899,23 +903,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/forgotPassCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="137" column="43" lean-forward="true" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
+        <state relative-caret-position="432">
+          <caret line="136" column="41" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="73" column="56" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+        <state relative-caret-position="323">
+          <caret line="78" column="63" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="e#5068#5069#0" expanded="true" />
-            <element signature="e#5131#5132#0" expanded="true" />
+            <element signature="e#5113#5114#0" expanded="true" />
+            <element signature="e#5176#5177#0" expanded="true" />
           </folding>
         </state>
       </provider>
