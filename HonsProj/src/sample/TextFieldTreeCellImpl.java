@@ -1,94 +1,157 @@
 package sample;
 
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
+import javafx.geometry.Insets;
+
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.GridPane;
 
-public class TextFieldTreeCellImpl extends TreeCell<String> {
-    private TextField textField;
-    private ContextMenu addMenu = new ContextMenu();
+import java.util.Optional;
 
-    public TextFieldTreeCellImpl() {
-        MenuItem addMenuItem = new MenuItem("Add Node");
-        addMenu.getItems().add(addMenuItem);
-        addMenuItem.setOnAction(new EventHandler() {
-            public void handle(Event t) {
-                TreeItem newEmployee =
-                        new TreeItem<String>("New Node");
-                getTreeItem().getChildren().add(newEmployee);
+public class TextFieldTreeCellImpl extends TreeCell<Node> {
+    //Variables
+    private TreeItem<Node>copyItem;
+    private TextField txtField;
+    private ContextMenu menu = new ContextMenu();
+
+    //Constructors
+    public TextFieldTreeCellImpl(TreeItem<Node>copyItem){
+        this.copyItem=copyItem;
+
+        MenuItem addStud=new MenuItem("Add");
+        addStud.setOnAction(event -> {
+            Dialog dialog=new Dialog();
+            dialog.setTitle("New Node");
+
+            GridPane grid=new GridPane();
+            grid.setHgap(10);
+            grid.setVgap(10);
+            grid.setPadding(new Insets(20,150,10,10));
+
+            TextField txtNo=new TextField();
+            txtNo.setPromptText("Enter Node No.");
+            TextArea txtQues=new TextArea("");
+            txtQues.setPromptText("Enter Question");
+            TextArea txtAns=new TextArea("");
+            txtAns.setPromptText("Enter Parent Answer");
+
+            grid.add(new Label("Node No:"),0,0);
+            grid.add(txtNo,1,0);
+            grid.add(new Label("Question:"), 0, 1);
+            grid.add(txtQues, 1, 1);
+            grid.add(new Label("Parent Answer:"), 0, 2);
+            grid.add(txtAns, 1, 2);
+
+
+            dialog.getDialogPane().setContent(grid);
+
+            ButtonType saveButtonType=new ButtonType("Save",ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(saveButtonType,ButtonType.CANCEL);
+
+            Optional<ButtonType>result=dialog.showAndWait();
+            if (result.get()==saveButtonType){
+
+                getTreeItem().getChildren().add(new TreeItem<>(new Node(Integer.parseInt(txtNo.getText()),
+                        txtQues.getText(),txtAns.getText())));
             }
 
         });
+        menu.getItems().add(addStud);
 
 
         MenuItem copyMenuItem=new MenuItem("Copy");
-        addMenu.getItems().add(copyMenuItem);
+        copyMenuItem.setOnAction(event -> {
 
+            copyItem.setValue(getItem());
+            copyItem.getChildren().addAll(getTreeItem().getChildren());
+        });
+        menu.getItems().addAll(copyMenuItem);
+
+        MenuItem pastItem=new MenuItem("Paste");
+        pastItem.setOnAction(event -> {
+            if (copyItem != null) {
+                getTreeItem().setValue(copyItem.getValue());
+                getTreeItem().getChildren().removeAll();
+                if(copyItem.getChildren().contains(getTreeItem())){
+                    copyItem.getChildren().remove(getTreeItem());
+                    addChildren(copyItem,getTreeItem());
+                }else {
+                    addChildren(copyItem,getTreeItem());
+                }
+
+            }
+        });
+        menu.getItems().add(pastItem);
+    }
+
+    //methods
+    private void addChildren(TreeItem<Node>copyItem, TreeItem<Node>pasteItem){
+        for(int i=0;i<copyItem.getChildren().size();i++){
+            TreeItem<Node>curItem=copyItem.getChildren().get(i);
+            TreeItem<Node>newItem=new TreeItem<>(new Node(curItem.getValue().nodeNoProperty().get(),
+                    curItem.getValue().questionProperty().get(),
+                    curItem.getValue().answerProperty().get()));
+            pasteItem.getChildren().add(newItem);
+            if(curItem.getChildren().size()>0){
+                addChildren(curItem,newItem);
+            }
+        }
     }
 
     @Override
     public void startEdit() {
         super.startEdit();
 
-        if (textField == null) {
+        if(txtField==null)
             createTextField();
-        }
         setText(null);
-        setGraphic(textField);
-        textField.selectAll();
+        setGraphic(txtField);
+        txtField.selectAll();
     }
 
     @Override
     public void cancelEdit() {
         super.cancelEdit();
-
-        setText((String) getItem());
+        setText(getItem().toString());
         setGraphic(getTreeItem().getGraphic());
     }
 
     @Override
-    public void updateItem(String item, boolean empty) {
+    protected void updateItem(Node item, boolean empty) {
         super.updateItem(item, empty);
 
-        if (empty) {
+        if(empty){
             setText(null);
             setGraphic(null);
-        } else {
-            if (isEditing()) {
-                if (textField != null) {
-                    textField.setText(getString());
+        }else {
+            if(isEditing()){
+                if(txtField!=null){
+                    txtField.setText(getNode().toString());
                 }
                 setText(null);
-                setGraphic(textField);
-            } else {
-                setText(getString());
+                setGraphic(txtField);
+            }else {
+                setText(getNode().toString());
                 setGraphic(getTreeItem().getGraphic());
-                setContextMenu(addMenu);
+                if(getParent()!=null)
+                    setContextMenu(menu);
             }
         }
     }
 
-    private void createTextField() {
-        textField = new TextField(getString());
-        textField.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent t) {
-                if (t.getCode() == KeyCode.ENTER) {
-                    commitEdit(textField.getText());
-                } else if (t.getCode() == KeyCode.ESCAPE) {
-                    cancelEdit();
-                }
+    private void createTextField(){
+        txtField=new TextField(getNode().toString());
+        txtField.setOnKeyReleased(event -> {
+            if(event.getCode()== KeyCode.ENTER) {
+                commitEdit(new Node(Integer.parseInt(txtField.getText()),
+                        getItem().questionProperty().get(),getItem().answerProperty().get()));
             }
+            else if(event.getCode()==KeyCode.ESCAPE)
+                cancelEdit();
         });
-
     }
 
-    private String getString() {
-        return getItem() == null ? "" : getItem().toString();
+    private Node getNode(){
+        return getItem() == null? new Node(0):getItem();
     }
 }

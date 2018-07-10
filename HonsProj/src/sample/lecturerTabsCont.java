@@ -67,8 +67,8 @@ public class lecturerTabsCont implements Initializable {
                     Stage newStage = new Stage();
                     newStage.setTitle("Knowledge Graph");
                     newStage.setScene(new Scene(parent));
-                    newStage.setHeight(600.0);
-                    newStage.setWidth(600.0);
+                    newStage.setHeight(800.0);
+                    newStage.setWidth(800.0);
                     newStage.showAndWait();
 
                 } catch (IOException e) {

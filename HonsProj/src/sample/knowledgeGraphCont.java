@@ -15,22 +15,25 @@ import java.util.ResourceBundle;
 public class knowledgeGraphCont implements Initializable {
     //variables
     private Label lblTreeTitle=new Label();
-    @FXML private JFXTreeView<String> treeKnow;
+    private TreeItem<Node>copyItem;
+    @FXML private TreeView<Node> treeKnow;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        copyItem=new TreeItem<>(new Node(-1));
         System.out.println("Tree Title: "+lblTreeTitle.getText());
-        TreeItem<String>root=new TreeItem<>(lblTreeTitle.getText());
+        TreeItem<Node>root=new TreeItem<>(new Node(0));
+
         treeKnow.setRoot(root);
         treeKnow.setEditable(true);
-        treeKnow.getSelectionModel().selectFirst();
-        treeKnow.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
+        treeKnow.setCellFactory(new Callback<TreeView<Node>, TreeCell<Node>>() {
             @Override
-            public TreeCell<String> call(TreeView<String> param) {
-                return new TextFieldTreeCellImpl();
+            public TreeCell<Node> call(TreeView<Node> param) {
+                return new TextFieldTreeCellImpl(copyItem);
             }
         });
+        treeKnow.getSelectionModel().selectFirst();
     }
 
     public void setLblTreeTitle(String title){
