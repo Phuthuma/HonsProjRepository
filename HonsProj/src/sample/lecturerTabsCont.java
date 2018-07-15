@@ -63,6 +63,7 @@ public class lecturerTabsCont implements Initializable {
                     Parent parent = loader.load();
                     knowledgeGraphCont cont = loader.<knowledgeGraphCont>getController();
                     cont.setLblTreeTitle(lstTasks.getSelectionModel().getSelectedItem().titleProperty().get());
+                    cont.setLblTaskId(lstTasks.getSelectionModel().getSelectedItem().taskIdProperty().get());
                     cont.initialize(loader.getLocation(), loader.getResources());
                     Stage newStage = new Stage();
                     newStage.setTitle("Knowledge Graph");
@@ -131,7 +132,6 @@ public class lecturerTabsCont implements Initializable {
             }
         });
     }
-
     private void setUpMods(){
         connect();
         String sql="select * from Module where LectCode = ?";

@@ -13,9 +13,9 @@
         <panes>
           <TitledPane animated="false" text="Parent Answer">
             <content>
-              <MigPane fx:id="txtAns" layout="fill" prefHeight="Infinity" prefWidth="Infinity" MigPane.cc="dock west, spanx,growx">
+              <MigPane layout="fill" prefHeight="Infinity" prefWidth="Infinity" MigPane.cc="dock west, spanx,growx">
                      <children>
-                        <TextArea prefHeight="Infinity" prefWidth="Infinity" MigPane.cc="span,grow" />
+                        <TextArea fx:id="txtAns" prefHeight="Infinity" prefWidth="Infinity" MigPane.cc="span,grow" />
                      </children>
               </MigPane>
             </content>

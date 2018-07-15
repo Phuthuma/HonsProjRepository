@@ -17,6 +17,12 @@ public class Node {
     private ObservableList<Node>childern;
 
     //constructors
+    public Node(){
+        nodeNo=new SimpleIntegerProperty();
+        question=new SimpleStringProperty();
+        answer=new SimpleStringProperty();
+        childern=FXCollections.observableList(new ArrayList<>());
+    }
     public Node(int no){
        this.nodeNo=new SimpleIntegerProperty(no);
        this.question=new SimpleStringProperty();
@@ -41,7 +47,6 @@ public class Node {
     public String toString() {
         return String.format("%s",nodeNo.get());
     }
-
     public IntegerProperty nodeNoProperty() {
         return nodeNo;
     }
@@ -52,7 +57,17 @@ public class Node {
         return answer;
     }
 
-    public void addNode(Node Node){
+    public void setNodeNo(int nodeNo) {
+        this.nodeNo.set(nodeNo);
+    }
+    public void setAnswer(String answer) {
+        this.answer.set(answer);
+    }
+    public void setQuestion(String question) {
+        this.question.set(question);
+    }
 
+    public void addNode(Node node){
+        childern.add(node);
     }
 }

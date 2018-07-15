@@ -31,6 +31,17 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="SolAssist@postgrad.nmmu.ac.za" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SolAssist@postgrad.nmmu.ac.za" type="feb32156:DbDataSourceImpl" />
+        <item name="SolAssist: database" type="bdf80c8a:MssqlImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SolAssist@postgrad.nmmu.ac.za" type="feb32156:DbDataSourceImpl" />
+        <item name="SolAssist: database" type="bdf80c8a:MssqlImplModel$Database" />
+        <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
@@ -77,13 +88,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="tasks.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tasks.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding>
+                <element signature="n#node#1;n#children#0;n#node#0;n#task#0;n#tasks#0;n#!!top" />
+                <element signature="n#node#0;n#task#1;n#tasks#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="knowledgeGraphCont.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="43" column="67" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#knowledgeGraphCont#0" />
+                <element signature="class#1521:1734" />
+                <element signature="e#2051#2407#0" />
+                <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
+                <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="knowledgeGraph.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraph.fxml">
+          <provider editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file leaf-file-name="TextFieldTreeCellImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
+              <folding>
+                <element signature="e#2048#2317#0" />
+                <element signature="e#2445#3100#0" />
+                <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecturerTabsCont.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1495#1708#0" />
+                <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
+                <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
+                <element signature="method#connect#0;class#lecturerTabsCont#0" />
+                <element signature="method#disconnect#0;class#lecturerTabsCont#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecturerTabs.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabs.fxml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            <state relative-caret-position="323">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Node#0;class#Node#0" />
                 <element signature="method#Node#0;class#Node#0" />
                 <element signature="method#Node#1;class#Node#0" />
                 <element signature="method#Node#2;class#Node#0" />
@@ -92,58 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="knowledgeGraphCont.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextFieldTreeCellImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="78" column="63" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="e#5113#5114#0" expanded="true" />
-                <element signature="e#5176#5177#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forgotPassCont.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/forgotPassCont.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="136" column="41" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lecturerTabsCont.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
-                <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
-                <element signature="method#connect#0;class#lecturerTabsCont#0" />
-                <element signature="method#disconnect#0;class#lecturerTabsCont#0" />
-              </folding>
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -202,16 +249,18 @@
         <option value="$PROJECT_DIR$/src/sample/Module.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/newTask.fxml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql" />
         <option value="$PROJECT_DIR$/src/sample/newTaskCont.java" />
         <option value="$PROJECT_DIR$/src/sample/ModRegCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/lecturerTabsCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/knowledgeGraph.fxml" />
         <option value="$PROJECT_DIR$/src/sample/lecturerTabs.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Task.java" />
+        <option value="$PROJECT_DIR$/src/sample/knowledgeGraph.fxml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql" />
+        <option value="$PROJECT_DIR$/graphs.xml" />
+        <option value="$PROJECT_DIR$/src/sample/lecturerTabsCont.java" />
         <option value="$PROJECT_DIR$/src/sample/Node.java" />
-        <option value="$PROJECT_DIR$/src/sample/knowledgeGraphCont.java" />
+        <option value="$PROJECT_DIR$/tasks.xml" />
         <option value="$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java" />
+        <option value="$PROJECT_DIR$/src/sample/knowledgeGraphCont.java" />
       </list>
     </option>
   </component>
@@ -225,11 +274,10 @@
     <packageJsonPaths />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="810" />
-    <option name="y" value="1" />
-    <option name="width" value="1111" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -240,8 +288,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,6 +310,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,7 +328,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="TSQL&#10;MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Tests/TreeView" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -443,11 +491,18 @@
       <workItem from="1531153763418" duration="7058000" />
       <workItem from="1531207641606" duration="4794000" />
       <workItem from="1531242670740" duration="2526000" />
+      <workItem from="1531387296115" duration="2004000" />
+      <workItem from="1531413908234" duration="851000" />
+      <workItem from="1531419476293" duration="1811000" />
+      <workItem from="1531648282381" duration="5616000" />
+      <workItem from="1531656672984" duration="6642000" />
+      <workItem from="1531663426221" duration="19000" />
+      <workItem from="1531678326692" duration="7607000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249653000" />
+    <option name="totallyTimeSpent" value="274203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -462,19 +517,19 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.53385127" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4073252" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1673774" />
-      <window_info anchor="right" id="Database" order="3" weight="0.14110824" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17697228" />
+      <window_info anchor="right" id="Database" order="3" weight="0.14072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="JetGradle" order="3" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -493,7 +548,7 @@
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.32963374" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40843508" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4073252" />
       <window_info anchor="right" id="JetGradle" order="4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -513,8 +568,8 @@
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Terminal" order="15" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.104477614" />
-      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.1663113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17217484" />
+      <window_info anchor="right" id="Database" order="6" weight="0.14110824" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -537,7 +592,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -545,50 +600,17 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
-            <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
-            <element signature="method#connect#0;class#lecturerTabsCont#0" />
-            <element signature="method#disconnect#0;class#lecturerTabsCont#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="e#5113#5114#0" expanded="true" />
-            <element signature="e#5176#5177#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#knowledgeGraphCont#0" />
+            <element signature="class#1521:1734" />
+            <element signature="e#2051#2407#0" />
+            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
+            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
           </folding>
         </state>
       </provider>
@@ -599,6 +621,7 @@
           <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Node#0;class#Node#0" />
             <element signature="method#Node#0;class#Node#0" />
             <element signature="method#Node#1;class#Node#0" />
             <element signature="method#Node#2;class#Node#0" />
@@ -619,6 +642,11 @@
           <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#knowledgeGraphCont#0" />
+            <element signature="class#1521:1734" />
+            <element signature="e#2051#2407#0" />
+            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
+            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
           </folding>
         </state>
       </provider>
@@ -629,6 +657,7 @@
           <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Node#0;class#Node#0" />
             <element signature="method#Node#0;class#Node#0" />
             <element signature="method#Node#1;class#Node#0" />
             <element signature="method#Node#2;class#Node#0" />
@@ -642,6 +671,11 @@
           <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#knowledgeGraphCont#0" />
+            <element signature="class#1521:1734" />
+            <element signature="e#2051#2407#0" />
+            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
+            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
           </folding>
         </state>
       </provider>
@@ -785,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminInfo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/abTwoCont.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/abCont.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/Lecturer.java">
@@ -829,13 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/newTaskCont.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -857,6 +877,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/forgotPassCont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="136" column="41" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminInfo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -864,12 +905,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabs.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraph.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="-102">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1495#1708#0" />
             <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
             <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
             <element signature="method#connect#0;class#lecturerTabsCont#0" />
@@ -880,10 +930,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Node#0;class#Node#0" />
             <element signature="method#Node#0;class#Node#0" />
             <element signature="method#Node#1;class#Node#0" />
             <element signature="method#Node#2;class#Node#0" />
@@ -891,36 +942,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
+    <entry file="file://$PROJECT_DIR$/tasks.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        <state relative-caret-position="272">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#node#1;n#children#0;n#node#0;n#task#0;n#tasks#0;n#!!top" />
+            <element signature="n#node#0;n#task#1;n#tasks#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/forgotPassCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="136" column="41" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="78" column="63" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
+        <state relative-caret-position="867">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#2048#2317#0" />
+            <element signature="e#2445#3100#0" />
+            <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="43" column="67" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="e#5113#5114#0" expanded="true" />
-            <element signature="e#5176#5177#0" expanded="true" />
+            <element signature="method#initialize#0;class#knowledgeGraphCont#0" />
+            <element signature="class#1521:1734" />
+            <element signature="e#2051#2407#0" />
+            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
+            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
           </folding>
         </state>
       </provider>

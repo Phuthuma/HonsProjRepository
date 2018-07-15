@@ -53,6 +53,10 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
 
                 getTreeItem().getChildren().add(new TreeItem<>(new Node(Integer.parseInt(txtNo.getText()),
                         txtQues.getText(),txtAns.getText())));
+
+                //add to xml file
+
+
             }
 
         });
@@ -73,6 +77,9 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
                 getTreeView().getSelectionModel().getSelectedItem().getChildren().clear();
                 getTreeView().getSelectionModel().getSelectedItem().setValue(copyItem.getValue());
                 getTreeView().getSelectionModel().getSelectedItem().getChildren().addAll(copyItem.getChildren());
+
+                //add to xml file
+
             }else {
                 Alert alert=new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
