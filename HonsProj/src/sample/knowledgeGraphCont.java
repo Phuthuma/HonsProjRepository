@@ -56,7 +56,7 @@ public class knowledgeGraphCont implements Initializable {
         treeKnow.setCellFactory(new Callback<TreeView<Node>, TreeCell<Node>>() {
             @Override
             public TreeCell<Node> call(TreeView<Node> param) {
-                return new TextFieldTreeCellImpl(copyItem);
+                return new TextFieldTreeCellImpl(copyItem,lblTaskId.getText(),knowledgeGraphCont.this);
             }
         });
         treeKnow.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -72,7 +72,7 @@ public class knowledgeGraphCont implements Initializable {
         treeKnow.getSelectionModel().selectFirst();
     }
 
-    private void setUpNodes(){
+    public void setUpNodes(){
 
         DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
         try {
@@ -104,7 +104,11 @@ public class knowledgeGraphCont implements Initializable {
         }
 
     }
-    private void addItems(Element curElem,TreeItem<Node>curItem) {
+    public ObservableList<TreeItem<Node>> getObsNodes() {
+        return obsNodes;
+    }
+
+    private void addItems(Element curElem, TreeItem<Node>curItem) {
         Node newNode=new Node();
         newNode.setNodeNo(Integer.parseInt(curElem.getAttribute("no")));
         curItem.setValue(newNode);
@@ -139,7 +143,6 @@ public class knowledgeGraphCont implements Initializable {
             }
         }
     }
-
     public void setLblTreeTitle(String title){
         lblTreeTitle.setText(title);
     }
