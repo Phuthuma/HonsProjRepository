@@ -1,6 +1,8 @@
 package sample;
 
 import com.sun.org.apache.xpath.internal.NodeSet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 
 import javafx.scene.control.*;
@@ -130,7 +132,6 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
         });
         menu.getItems().add(addStud);
 
-
         MenuItem copyMenuItem=new MenuItem("Copy");
         copyMenuItem.setOnAction(event -> {
             copyItem.getChildren().clear();
@@ -141,7 +142,7 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
 
         MenuItem pastItem=new MenuItem("Paste");
         pastItem.setOnAction(event -> {
-            if ((copyItem != null)&&(!copyItem.getChildren().contains(getTreeItem()))) {
+            if (copyItem != null) {
 
                 /*getTreeView().getSelectionModel().getSelectedItem().getChildren().clear();
                 getTreeView().getSelectionModel().getSelectedItem().setValue(copyItem.getValue());
@@ -173,11 +174,11 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
 
                             Element childrenElem= (Element) curElem.getChildNodes().item(5);
                             //traverse copy item children and add nodes
+                            addChildNodes(doc,childrenElem,copyItem.getChildren());
 
                             System.out.println("Node Tag: "+curElem.getTagName()+" Node no: "+curElem.getAttribute("no"));
                         }
                     }
-
                     saveDoc(doc,"tasks.xml");
                     getTreeView().getRoot().getChildren().clear();
                     cont.setUpNodes();
@@ -196,14 +197,162 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
             }else {
                 Alert alert=new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setHeaderText("Can't copy parent to child!");
+                alert.setHeaderText("There is no node copied to clipboard");
                 alert.showAndWait();
             }
         });
         menu.getItems().add(pastItem);
+
+        MenuItem delItem=new MenuItem("Delete");
+        delItem.setOnAction(event -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Are you sure you want to delete node "+getTreeItem().getValue().nodeNoProperty().getValue());
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                if(getTreeItem().equals(getTreeView().getRoot())){
+                    getTreeView().getRoot().getValue().setNodeNo(0);
+                    getTreeView().getRoot().getValue().setAnswer("");
+                    getTreeView().getRoot().getValue().setQuestion("");
+                    getTreeView().getRoot().getChildren().clear();
+                    //build from here into the xml document
+                    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+                    Document doc=null;
+                    try {
+                        DocumentBuilder builder = factory.newDocumentBuilder();
+                        doc = builder.parse("tasks.xml");
+
+                        while (doc.getDocumentElement().hasChildNodes())
+                            doc.getDocumentElement().removeChild(doc.getDocumentElement().getFirstChild());
+
+                        saveDoc(doc,"tasks.xml");
+                        getTreeView().getRoot().getChildren().clear();
+                        cont.setUpNodes();
+
+                    } catch (ParserConfigurationException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SAXException e) {
+                        e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                else{
+                    getTreeView().getRoot().getChildren().remove(getTreeItem());
+                    ObservableList<TreeItem<Node>>rootChildren=getTreeView().getRoot().getChildren();
+                    //build from here into the xml document
+
+
+                    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+                    Document doc=null;
+                    try {
+                        DocumentBuilder builder=factory.newDocumentBuilder();
+                        doc=builder.parse("tasks.xml");
+
+                        XPathFactory xpFact=XPathFactory.newInstance();
+                        XPath path=xpFact.newXPath();
+
+                        String query="//task[@id='"+taskId+"']/node['1']";
+                        NodeList list= (NodeList) path.evaluate(query,doc,XPathConstants.NODESET);
+
+
+                        org.w3c.dom.Node curNode=list.item(0);
+                        Element rootElem= (Element) curNode;
+
+                        TreeItem<Node>rootItem=getTreeView().getRoot();
+
+                        org.w3c.dom.Node quesNode=rootElem.getChildNodes().item(1);
+                        Element quesElem= (Element) quesNode;
+                        quesElem.setTextContent(rootItem.getValue().questionProperty().getValue());
+
+                        org.w3c.dom.Node ansNode=rootElem.getChildNodes().item(3);
+                        Element ansElem= (Element) ansNode;
+                        ansElem.setTextContent(rootItem.getValue().questionProperty().getValue());
+
+                        org.w3c.dom.Node childrenNode=rootElem.getChildNodes().item(5);
+                        Element childrenElem= (Element) childrenNode;
+
+                        //clearing xml file
+                        while (childrenElem.hasChildNodes())
+                            childrenElem.removeChild(childrenElem.getFirstChild());
+                        saveDoc(doc,"tasks.xml");
+
+                        //repopulate xml file
+                        getTreeView().getRoot().getChildren().remove(getTreeItem());
+                        addChildNodes(doc,childrenElem,getTreeView().getRoot().getChildren());
+
+                        saveDoc(doc,"tasks.xml");
+                        getTreeView().getRoot().getChildren().clear();
+                        cont.setUpNodes();
+
+                    } catch (ParserConfigurationException e) {
+                        e.printStackTrace();
+                    } catch (SAXException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (XPathExpressionException e) {
+                        e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            } else {
+                alert.close();
+            }
+        });
+        menu.getItems().add(delItem);
     }
 
     //methods
+    private void addChildNodes(Document doc, Element elem, ObservableList<TreeItem<Node>>treeItems){
+        for (TreeItem<Node>curItem:treeItems) {
+            Node curNode=curItem.getValue();
+
+            Element newElem=doc.createElement("node");
+            newElem.setAttribute("no",curNode.nodeNoProperty().getValue().toString());
+
+            Element quesElement=doc.createElement("question");
+            quesElement.setTextContent(curNode.questionProperty().getValue());
+            newElem.appendChild(quesElement);
+
+            Element ansElem=doc.createElement("answer");
+            ansElem.setTextContent(curNode.answerProperty().getValue());
+            newElem.appendChild(ansElem);
+
+            Element childrenElem=doc.createElement("children");
+            addChildNodes(doc,childrenElem,curItem.getChildren());
+            newElem.appendChild(childrenElem);
+
+            elem.appendChild(newElem);
+        }
+    }
+    private void addDelChildNodes(Document doc, Element elem, ObservableList<TreeItem<Node>>treeItems){
+        for (TreeItem<Node>curItem:treeItems) {
+            Node curNode=curItem.getValue();
+
+            Element newElem=doc.createElement("node");
+            newElem.setAttribute("no",curNode.nodeNoProperty().getValue().toString());
+
+            Element quesElement=doc.createElement("question");
+            quesElement.setTextContent(curNode.questionProperty().getValue());
+            newElem.appendChild(quesElement);
+
+            Element ansElem=doc.createElement("answer");
+            ansElem.setTextContent(curNode.answerProperty().getValue());
+            newElem.appendChild(ansElem);
+
+            Element childrenElem=doc.createElement("children");
+            addChildNodes(doc,childrenElem,curItem.getChildren());
+            newElem.appendChild(childrenElem);
+
+            elem.appendChild(newElem);
+        }
+    }
     private static void saveDoc(Document doc, String filename) throws Exception {
         // obtain serializer
         DOMImplementation impl = doc.getImplementation();
@@ -227,7 +376,6 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
         // close file
         fout.close();
     }
-
     private void addChildren(TreeItem<Node>copyItem, TreeItem<Node>pasteItem){
         for(int i=0;i<copyItem.getChildren().size();i++){
             TreeItem<Node>curItem=copyItem.getChildren().get(i);
@@ -292,5 +440,4 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
     private Node getNode(){
         return getItem() == null? new Node(0):getItem();
     }
-
 }
