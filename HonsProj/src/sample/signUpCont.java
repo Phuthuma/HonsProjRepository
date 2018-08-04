@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,7 +63,38 @@ public class signUpCont implements Initializable {
                         stmt.setString(3, txtEmail.getText());
                         stmt.setString(4, txtCourse.getText());
                         stmt.setString(5, txtPass.getText());
-                        stmt.execute();
+                        try {
+                            stmt.execute();
+                        }catch (Exception e){
+                            //write error message
+                            Alert alert=new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText("Email Validation Error");
+                            alert.setContentText(txtEmail.getText()+" already exists in list!");
+                            alert.showAndWait();
+                        }
+
+
+                        HtmlEmail email=new HtmlEmail();
+
+                        email.setHostName("smtp.gmail.com");
+                        email.setSmtpPort(587);
+                        email.setStartTLSEnabled(true);
+                        email.setAuthentication("phuthumaloyisopetse@gmail.com","sweleba88");
+
+                        try {
+                            email.setFrom("phuthumaloyisopetse@gmail.com");
+                            email.addTo(txtEmail.getText());
+                            email.setSubject("SollAssist Credentials");
+                            email.setHtmlMsg("Hi "+txtName.getText()+" an account has been created in solAssist for " +
+                                    "username:"+txtStudNo.getText()+" password: "+ txtPass.getText());
+                            email.send();
+                        } catch (EmailException e) {
+                            e.printStackTrace();
+                        }
+
+                        //Stage stage= (Stage) ((Node)event.getSource()).getScene().getWindow();
+                        //stage.close();
                     }else {
                         if(!txtPass.getText().matches(txtPassCon.getText())) {
                             Alert alert = new Alert(Alert.AlertType.ERROR);

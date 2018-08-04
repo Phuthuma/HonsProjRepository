@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXTreeView;
 import com.sun.org.apache.xpath.internal.NodeSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -29,8 +30,6 @@ import java.util.ResourceBundle;
 
 public class knowledgeGraphCont implements Initializable {
     //variables
-    private ObservableList<TreeItem<Node>>obsNodes;
-
     private Label lblTreeTitle=new Label();
     private Label lblTaskId=new Label();
     private TreeItem<Node>copyItem;
@@ -40,19 +39,18 @@ public class knowledgeGraphCont implements Initializable {
     @FXML private TextArea txtAns;
     @FXML private TextArea txtQuest;
 
+    //constructors
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        obsNodes=FXCollections.observableList(new ArrayList<>());
-
         copyItem=new TreeItem<>(new Node(-1));
         System.out.println("Tree Title: "+lblTreeTitle.getText());
 
         root=new TreeItem<>(new Node());
         setUpNodes();
 
-
         treeKnow.setRoot(root);
         treeKnow.setEditable(true);
+
         treeKnow.setCellFactory(new Callback<TreeView<Node>, TreeCell<Node>>() {
             @Override
             public TreeCell<Node> call(TreeView<Node> param) {
@@ -72,8 +70,8 @@ public class knowledgeGraphCont implements Initializable {
         treeKnow.getSelectionModel().selectFirst();
     }
 
+    //methods
     public void setUpNodes(){
-
         DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder=factory.newDocumentBuilder();
@@ -102,12 +100,7 @@ public class knowledgeGraphCont implements Initializable {
         } catch (XPathExpressionException e) {
             e.printStackTrace();
         }
-
     }
-    public ObservableList<TreeItem<Node>> getObsNodes() {
-        return obsNodes;
-    }
-
     private void addItems(Element curElem, TreeItem<Node>curItem) {
         Node newNode=new Node();
         newNode.setNodeNo(Integer.parseInt(curElem.getAttribute("no")));

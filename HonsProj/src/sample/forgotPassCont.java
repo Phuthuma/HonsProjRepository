@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
@@ -27,6 +28,7 @@ import java.util.ResourceBundle;
 public class forgotPassCont implements Initializable {
     //variables
     Connection con=null;
+    private Label lblUname=new Label();
 
     @FXML private JFXTextField txtInput;
     @FXML private JFXButton btnSend;
@@ -34,6 +36,7 @@ public class forgotPassCont implements Initializable {
     //methods
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        txtInput.setText(lblUname.getText());
         btnSend.setOnAction(event -> {
 
            connect();
@@ -160,6 +163,10 @@ public class forgotPassCont implements Initializable {
             disconnect();
         });
     }
+    public void setUname(String uname){
+        lblUname.setText(uname);
+    }
+
     private void connect(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

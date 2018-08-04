@@ -18,6 +18,9 @@ public class Lecturer {
     }
 
     //methods
+    public String toString(){
+        return String.format("%s : %s",lectCode.get(),lectName.get());
+    }
     public SimpleStringProperty lectCodeProperty() {
         return lectCode;
     }

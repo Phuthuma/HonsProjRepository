@@ -46,10 +46,21 @@ public class ModRegCont implements Initializable {
     @FXML private JFXButton btnSaveMod;
     @FXML private JFXButton btnSaveLect;
 
+    private ObservableList<Lecturer>obsLects;
+
+    @FXML private JFXListView<Lecturer>lstLects;
+    @FXML private JFXTextField txtLectEditCode;
+    @FXML private JFXTextField txtLectEditName;
+    @FXML private JFXTextField txtLectEditEmail;
+    @FXML private JFXButton btnLectEditSave;
+    @FXML private JFXButton btnNewLect;
+    @FXML private JFXButton btnDelLect;
+    @FXML private JFXButton btnLogOut;
 
     //methods
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //modules
         mods=new ArrayList<Module>();
         obsMods=FXCollections.observableArrayList();
         obsMods.addAll(mods);
@@ -114,6 +125,8 @@ public class ModRegCont implements Initializable {
                 disconnect();
             }
         }));
+        lstMods.getSelectionModel().selectFirst();
+
         btnSaveMod.setOnAction(event -> {
             connect();
             try {
@@ -138,6 +151,10 @@ public class ModRegCont implements Initializable {
                 stmt.setString(2,txtLectEmail.getText());
                 stmt.setString(3,txtLectCode.getText());
                 stmt.executeUpdate();
+                int index=lstMods.getSelectionModel().getSelectedIndex();
+                lstMods.getItems().clear();
+                setUpMods();
+                lstMods.getSelectionModel().select(index);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -186,8 +203,112 @@ public class ModRegCont implements Initializable {
                 delAlert.close();
             }
         });
+        btnLogOut.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("logIn.fxml"));
+            try {
+                Parent parent = loader.load();
+                logInCont cont=loader.getController();
+                cont.initialize(loader.getLocation(), loader.getResources());
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(parent));
+                newStage.setTitle("SignIn");
+                newStage.setResizable(false);
+                newStage.initModality(Modality.APPLICATION_MODAL);
+                newStage.initStyle(StageStyle.DECORATED);
+                newStage.setWidth(800.0);
+                newStage.setHeight(800.0);
+                Stage primeStage= (Stage) ((Node)event.getSource()).getScene().getWindow();
+                primeStage.close();
+                newStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
-        lstMods.getSelectionModel().selectFirst();
+        //lecturers
+        obsLects=FXCollections.observableList(new ArrayList<>());
+        setUpLects();
+
+        lstLects.setItems(obsLects);
+        lstLects.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if(oldValue!=null){
+                txtLectEditCode.textProperty().unbindBidirectional(oldValue.lectCodeProperty());
+                txtLectEditName.textProperty().unbindBidirectional(oldValue.lectNameProperty());
+                txtLectEditEmail.textProperty().unbindBidirectional(oldValue.lectEmailProperty());
+            }
+            if(newValue!=null){
+                txtLectEditCode.textProperty().bindBidirectional(newValue.lectCodeProperty());
+                txtLectEditName.textProperty().bindBidirectional(newValue.lectNameProperty());
+                txtLectEditEmail.textProperty().bindBidirectional(newValue.lectEmailProperty());
+            }
+        });
+        lstLects.getSelectionModel().selectFirst();
+        btnNewLect.setOnAction(event -> {
+            Parent addRoot = null;
+            try {
+                addRoot=FXMLLoader.load(getClass().getResource("newLect.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene newScene=new Scene(addRoot);
+            Stage primeStage= (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Stage stage=new Stage();
+            stage.initOwner(primeStage);
+            stage.setScene(newScene);
+            stage.setTitle("New Lecturer");
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.setWidth(400.0);
+            stage.setHeight(400.0);
+            stage.showAndWait();
+            obsLects.clear();
+            setUpLects();
+        });
+        btnDelLect.setOnAction(event -> {
+            Alert delAlert=new Alert(Alert.AlertType.CONFIRMATION);
+            delAlert.setTitle("Module Lecturer");
+            delAlert.setContentText("Are you sure you want to delete "+txtLectEditName.textProperty().get()+" ?");
+            Optional<ButtonType>result=delAlert.showAndWait();
+            if(result.get()==ButtonType.OK){
+                connect();
+                String sql="Delete from Lecturer where LectCode = ?";
+                try {
+                    PreparedStatement stmt=con.prepareStatement(sql);
+                    stmt.setString(1,txtLectEditCode.getText());
+                    stmt.executeUpdate();
+                    obsLects.remove(lstLects.getSelectionModel().getSelectedItem());
+                } catch (SQLException e) {
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Delete Error");
+                    alert.setHeaderText("Can't delete "+txtLectEditName.textProperty().getValue()+" : Lecturer is linked to a module");
+                    alert.showAndWait();
+                }
+                disconnect();
+            }else{
+                delAlert.close();
+            }
+        });
+        btnLectEditSave.setOnAction(event -> {
+            connect();
+            String sql="Update Lecturer set Name = ?, Email = ? where LectCode = ?";
+            try {
+                PreparedStatement stmt=con.prepareStatement(sql);
+                stmt.setString(1,txtLectEditName.getText());
+                stmt.setString(2,txtLectEditEmail.getText());
+                stmt.setString(3,txtLectEditCode.getText());
+                stmt.executeUpdate();
+                int index=lstLects.getSelectionModel().getSelectedIndex();
+                lstLects.getItems().clear();
+                setUpLects();
+                lstLects.getSelectionModel().select(index);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            disconnect();
+        });
+
     }
     private void setUpMods(){
         connect();
@@ -231,6 +352,34 @@ public class ModRegCont implements Initializable {
             lstMods.getSelectionModel().select(index);
         }
     }
+    public ObservableList<Module> getObsMods() {
+        return obsMods;
+    }
+
+    private void setUpLects(){
+        connect();
+        Statement stmt=null;
+        try {
+            stmt=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String sql="select LectCode, Name, Email from Lecturer";
+        try {
+            ResultSet result=stmt.executeQuery(sql);
+            while (result.next()){
+                String lectCode=result.getString("LectCode");
+                String lectName=result.getString("Name");
+                String lectEmail=result.getString("Email");
+                Lecturer newLect=new Lecturer(lectCode,lectName,lectEmail);
+                obsLects.add(newLect);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        disconnect();
+    }
+
     private void connect(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -256,7 +405,5 @@ public class ModRegCont implements Initializable {
         }
     }
 
-    public ObservableList<Module> getObsMods() {
-        return obsMods;
-    }
+
 }

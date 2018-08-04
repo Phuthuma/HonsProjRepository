@@ -45,7 +45,7 @@ public class Node {
     //methods
     @Override
     public String toString() {
-        return String.format("%s",nodeNo.get());
+        return String.format("%s: %s",nodeNo.get(),question.get());
     }
     public IntegerProperty nodeNoProperty() {
         return nodeNo;

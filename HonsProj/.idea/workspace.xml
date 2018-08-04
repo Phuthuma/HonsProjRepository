@@ -42,6 +42,13 @@
         <item name="SolAssist: database" type="bdf80c8a:MssqlImplModel$Database" />
         <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SolAssist@postgrad.nmmu.ac.za" type="feb32156:DbDataSourceImpl" />
+        <item name="SolAssist: database" type="bdf80c8a:MssqlImplModel$Database" />
+        <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
+        <item name="Task: table" type="a00791b9:MssqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -88,67 +95,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tasks.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="18" column="15" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="25" />
-              <folding>
-                <element signature="n#task#1;n#tasks#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knowledgeGraphCont.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2095#2628#0" />
-                <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
-                <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextFieldTreeCellImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="232" column="62" lean-forward="true" selection-start-line="232" selection-start-column="62" selection-end-line="232" selection-end-column="62" />
-              <folding>
-                <element signature="e#1301#5310#0" />
-                <element signature="e#5438#5707#0" />
-                <element signature="e#5835#8880#0" />
-                <element signature="method#addChildNodes#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#addChildNodes#1;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#saveDoc#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-                <element signature="e#17974#17975#0" expanded="true" />
-                <element signature="e#18037#18038#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="lecturerTabsCont.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="170">
+              <caret line="153" column="45" lean-forward="true" selection-start-line="153" selection-start-column="45" selection-end-line="153" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1495#1708#0" />
+                <element signature="e#1566#1779#0" />
+                <element signature="e#1869#2998#0" />
+                <element signature="e#3033#4424#0" />
+                <element signature="e#5508#6497#0" />
                 <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
                 <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
+                <element signature="method#delTaskFromXML#0;class#lecturerTabsCont#0" />
+                <element signature="method#saveDoc#0;class#lecturerTabsCont#0" />
                 <element signature="method#connect#0;class#lecturerTabsCont#0" />
                 <element signature="method#disconnect#0;class#lecturerTabsCont#0" />
               </folding>
@@ -156,25 +117,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Task.java">
+      <file leaf-file-name="lecturerTabs.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabs.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="TextFieldTreeCellImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="459">
+              <caret line="331" column="13" lean-forward="true" selection-start-line="331" selection-start-column="13" selection-end-line="331" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#addChildNodes#0;class#TextFieldTreeCellImpl#0" />
+                <element signature="method#saveDoc#0;class#TextFieldTreeCellImpl#0" />
+                <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
+                <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
+                <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
+                <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
+      <file leaf-file-name="tasks.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tasks.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="68">
+              <caret line="110" column="11" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Node#0;class#Node#0" />
-                <element signature="method#Node#1;class#Node#0" />
-                <element signature="method#Node#2;class#Node#0" />
+                <element signature="n#task#0;n#tasks#0;n#!!top" />
+                <element signature="n#node#1;n#children#0;n#node#0;n#task#0;n#tasks#0;n#!!top" />
+                <element signature="n#task#1;n#tasks#0;n#!!top" />
+                <element signature="n#node#0;n#task#1;n#tasks#0;n#!!top" />
+                <element signature="n#task#2;n#tasks#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -184,7 +161,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
+              <caret column="18" selection-start-column="18" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -219,42 +196,43 @@
         <option value="$PROJECT_DIR$/src/sample/style.css" />
         <option value="$PROJECT_DIR$/src/sample/ModRegistration.fxml" />
         <option value="$PROJECT_DIR$/src/sample/ModRegistrationController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Lecturer.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console_1.sql" />
         <option value="$PROJECT_DIR$/src/sample/newModule.fxml" />
         <option value="$PROJECT_DIR$/src/sample/newLect.fxml" />
         <option value="$PROJECT_DIR$/src/sample/newModuleController.java" />
-        <option value="$PROJECT_DIR$/src/sample/modReg.fxml" />
         <option value="$PROJECT_DIR$/src/sample/logInController.java" />
         <option value="$PROJECT_DIR$/src/sample/signUp.fxml" />
         <option value="$PROJECT_DIR$/src/sample/logIn.fxml" />
         <option value="$PROJECT_DIR$/src/sample/mailExeption.java" />
         <option value="$PROJECT_DIR$/src/sample/newModuleCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/newLectCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/signUpCont.java" />
         <option value="$PROJECT_DIR$/src/sample/adminInfo.xml" />
         <option value="$PROJECT_DIR$/src/sample/forgotPass.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/forgotPassCont.java" />
         <option value="$PROJECT_DIR$/src/sample/ab.fxml" />
         <option value="$PROJECT_DIR$/src/sample/abContTwo.fxml" />
         <option value="$PROJECT_DIR$/src/sample/abTwoCont.java" />
         <option value="$PROJECT_DIR$/src/sample/abCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/logInCont.java" />
         <option value="$PROJECT_DIR$/src/sample/Module.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/newTask.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/newTaskCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/ModRegCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/lecturerTabs.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Task.java" />
         <option value="$PROJECT_DIR$/src/sample/knowledgeGraph.fxml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql" />
         <option value="$PROJECT_DIR$/graphs.xml" />
-        <option value="$PROJECT_DIR$/src/sample/lecturerTabsCont.java" />
-        <option value="$PROJECT_DIR$/src/sample/Node.java" />
-        <option value="$PROJECT_DIR$/src/sample/knowledgeGraphCont.java" />
-        <option value="$PROJECT_DIR$/tasks.xml" />
+        <option value="$PROJECT_DIR$/src/sample/Lecturer.java" />
+        <option value="$PROJECT_DIR$/src/sample/newLectCont.java" />
+        <option value="$PROJECT_DIR$/src/sample/logInCont.java" />
+        <option value="$PROJECT_DIR$/src/sample/forgotPassCont.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console_2.sql" />
+        <option value="$PROJECT_DIR$/src/sample/signUpCont.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/lecturerTabs.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/modReg.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/ModRegCont.java" />
         <option value="$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java" />
+        <option value="$PROJECT_DIR$/src/sample/newTaskCont.java" />
+        <option value="$PROJECT_DIR$/src/sample/knowledgeGraphCont.java" />
+        <option value="$PROJECT_DIR$/src/sample/Node.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql" />
+        <option value="$PROJECT_DIR$/tasks.xml" />
+        <option value="$PROJECT_DIR$/src/sample/lecturerTabsCont.java" />
       </list>
     </option>
   </component>
@@ -269,9 +247,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1378" />
-    <option name="height" value="735" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -281,9 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,6 +283,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,7 +301,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="TSQL&#10;MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../2nd/BlockChain/Tuts/Tut7" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -494,16 +473,29 @@
       <workItem from="1531678326692" duration="8082000" />
       <workItem from="1531754426646" duration="15971000" />
       <workItem from="1531812738569" duration="2289000" />
-      <workItem from="1531850097696" duration="12869000" />
+      <workItem from="1531850097696" duration="13521000" />
+      <workItem from="1531912111110" duration="2538000" />
+      <workItem from="1531915140577" duration="19000" />
+      <workItem from="1531935890319" duration="15729000" />
+      <workItem from="1532421374503" duration="1650000" />
+      <workItem from="1532554635580" duration="1515000" />
+      <workItem from="1532810285585" duration="1837000" />
+      <workItem from="1532883670518" duration="2303000" />
+      <workItem from="1532894281112" duration="158000" />
+      <workItem from="1532894803274" duration="64000" />
+      <workItem from="1533028751481" duration="14588000" />
+      <workItem from="1533073424689" duration="157000" />
+      <workItem from="1533197746033" duration="4659000" />
+      <workItem from="1533234410486" duration="1300000" />
+      <workItem from="1533405640051" duration="14250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305807000" />
+    <option name="totallyTimeSpent" value="367226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -514,24 +506,24 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7835738" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.7824639" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32963374" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.17857143" />
-      <window_info anchor="right" id="Database" order="3" weight="0.14072494" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.11940298" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="JetGradle" order="3" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32963374" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
       <window_info anchor="bottom" id="Changes" order="7" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Profiler" order="7" />
@@ -544,10 +536,9 @@
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="JetGradle" order="4" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.32963374" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7835738" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="bottom" id="Profiler" order="8" />
@@ -557,10 +548,11 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32963374" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Problems" order="12" />
-      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Maven Projects" order="5" />
@@ -568,7 +560,7 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17857143" />
       <window_info anchor="right" id="Database" order="6" weight="0.14072494" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -589,7 +581,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="XPathView.XPathProjectComponent">
@@ -624,87 +616,49 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
+    <entry file="file://$PROJECT_DIR$/tasks.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="43" column="67" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
+        <state relative-caret-position="187">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2095#2628#0" />
-            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
-            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
+            <element signature="n#task#0;n#tasks#0;n#!!top" />
+            <element signature="n#node#1;n#children#0;n#node#0;n#task#0;n#tasks#0;n#!!top" />
+            <element signature="n#task#1;n#tasks#0;n#!!top" />
+            <element signature="n#node#0;n#task#1;n#tasks#0;n#!!top" />
+            <element signature="n#task#2;n#tasks#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/newTaskCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="1122">
+          <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2095#2628#0" />
-            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
-            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
+            <element signature="e#1440#3144#0" />
+            <element signature="e#3176#3306#0" />
+            <element signature="method#setValidations#0;class#newTaskCont#0" />
+            <element signature="method#addXMLtask#0;class#newTaskCont#0" />
+            <element signature="method#buildTask#0;class#newTaskCont#0" />
+            <element signature="method#saveDoc#0;class#newTaskCont#0" />
+            <element signature="method#connect#0;class#newTaskCont#0" />
+            <element signature="method#disconnect#0;class#newTaskCont#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="2295">
+          <caret line="387" column="5" lean-forward="true" selection-start-line="387" selection-start-column="5" selection-end-line="387" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" />
-            <element signature="method#Node#1;class#Node#0" />
-            <element signature="method#Node#2;class#Node#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2095#2628#0" />
-            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
-            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" />
-            <element signature="method#Node#1;class#Node#0" />
-            <element signature="method#Node#2;class#Node#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2095#2628#0" />
-            <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
-            <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
+            <element signature="method#addChildNodes#0;class#TextFieldTreeCellImpl#0" />
+            <element signature="method#saveDoc#0;class#TextFieldTreeCellImpl#0" />
+            <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
+            <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
+            <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
+            <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
           </folding>
         </state>
       </provider>
@@ -841,22 +795,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/mailExeption.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/signUpCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/abTwoCont.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/abCont.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Lecturer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Module.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -864,66 +804,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tasks" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Lecturer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/newLectCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/logInCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="115" column="48" lean-forward="true" selection-start-line="109" selection-start-column="27" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/newModuleCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="65" column="42" lean-forward="true" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/newTaskCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ModRegCont.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="187" column="11" selection-start-line="187" selection-start-column="11" selection-end-line="187" selection-end-column="11" />
+        <state relative-caret-position="48">
+          <caret line="88" column="61" lean-forward="true" selection-start-line="88" selection-start-column="61" selection-end-line="88" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/forgotPassCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="136" column="41" selection-start-line="136" selection-start-column="29" selection-end-line="139" selection-end-column="52" />
+        <state relative-caret-position="306">
+          <caret line="166" column="30" selection-start-line="166" selection-start-column="30" selection-end-line="166" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminInfo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console_2.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/signUpCont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/logInCont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="132" column="48" lean-forward="true" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -934,80 +861,157 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
+    <entry file="file://$PROJECT_DIR$/adminInfo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="102">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/fxml/Initializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ModRegCont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="227" selection-start-line="227" selection-end-line="227" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" />
-            <element signature="method#Node#1;class#Node#0" />
-            <element signature="method#Node#2;class#Node#0" />
+            <element signature="e#8642#9631#0" />
+            <element signature="method#setUpMods#0;class#ModRegCont#0" />
+            <element signature="method#refreshSelectedListItem#0;class#ModRegCont#0" />
+            <element signature="method#setUpLects#0;class#ModRegCont#0" />
+            <element signature="method#connect#0;class#ModRegCont#0" />
+            <element signature="method#disconnect#0;class#ModRegCont#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks">
+    <entry file="file://$PROJECT_DIR$/src/sample/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-249" />
+        <state relative-caret-position="323">
+          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+          <folding>
+            <element signature="method#Node#0;class#Node#0" />
+            <element signature="method#Node#1;class#Node#0" />
+            <element signature="method#Node#2;class#Node#0" />
+            <element signature="method#Node#3;class#Node#0" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraph.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/newModuleCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="357">
+          <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1495#1708#0" />
-            <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
-            <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
-            <element signature="method#connect#0;class#lecturerTabsCont#0" />
-            <element signature="method#disconnect#0;class#lecturerTabsCont#0" />
+            <element signature="method#initialize#0;class#newModuleCont#0" />
+            <element signature="e#1440#1549#0" />
+            <element signature="e#1599#1775#0" />
+            <element signature="e#2172#2889#0" />
+            <element signature="e#2923#4333#0" />
+            <element signature="e#4369#4499#0" />
+            <element signature="method#connect#0;class#newModuleCont#0" />
+            <element signature="method#disconnect#0;class#newModuleCont#0" />
+            <element signature="method#setUpLectCodes#0;class#newModuleCont#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/knowledgeGraphCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+        <state relative-caret-position="561">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2095#2628#0" />
+            <element signature="class#1696:1953" />
+            <element signature="e#2028#2561#0" />
             <element signature="method#setUpNodes#0;class#knowledgeGraphCont#0" />
             <element signature="method#addItems#0;class#knowledgeGraphCont#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks.xml">
+    <entry file="file://$PROJECT_DIR$/src/sample/newTaskCont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="18" column="15" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="25" />
+        <state relative-caret-position="442">
+          <caret line="132" column="88" selection-start-line="132" selection-start-column="88" selection-end-line="132" selection-end-column="88" />
           <folding>
-            <element signature="n#task#1;n#tasks#0;n#!!top" />
+            <element signature="e#1440#3144#0" />
+            <element signature="e#3176#3306#0" />
+            <element signature="method#setValidations#0;class#newTaskCont#0" />
+            <element signature="method#addXMLtask#0;class#newTaskCont#0" />
+            <element signature="method#buildTask#0;class#newTaskCont#0" />
+            <element signature="method#saveDoc#0;class#newTaskCont#0" />
+            <element signature="method#connect#0;class#newTaskCont#0" />
+            <element signature="method#disconnect#0;class#newTaskCont#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4075069a-44d2-44d5-a932-871b5c1052f8/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabs.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/TextFieldTreeCellImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="232" column="62" lean-forward="true" selection-start-line="232" selection-start-column="62" selection-end-line="232" selection-end-column="62" />
+        <state relative-caret-position="459">
+          <caret line="331" column="13" lean-forward="true" selection-start-line="331" selection-start-column="13" selection-end-line="331" selection-end-column="13" />
           <folding>
-            <element signature="e#1301#5310#0" />
-            <element signature="e#5438#5707#0" />
-            <element signature="e#5835#8880#0" />
+            <element signature="imports" expanded="true" />
             <element signature="method#addChildNodes#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#addChildNodes#1;class#TextFieldTreeCellImpl#0" />
             <element signature="method#saveDoc#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="method#addChildren#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#startEdit#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#cancelEdit#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#updateItem#0;class#TextFieldTreeCellImpl#0" />
             <element signature="method#createTextField#0;class#TextFieldTreeCellImpl#0" />
-            <element signature="e#17974#17975#0" expanded="true" />
-            <element signature="e#18037#18038#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/lecturerTabsCont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="153" column="45" lean-forward="true" selection-start-line="153" selection-start-column="45" selection-end-line="153" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1566#1779#0" />
+            <element signature="e#1869#2998#0" />
+            <element signature="e#3033#4424#0" />
+            <element signature="e#5508#6497#0" />
+            <element signature="method#setUpMods#0;class#lecturerTabsCont#0" />
+            <element signature="method#setUpTasks#0;class#lecturerTabsCont#0" />
+            <element signature="method#delTaskFromXML#0;class#lecturerTabsCont#0" />
+            <element signature="method#saveDoc#0;class#lecturerTabsCont#0" />
+            <element signature="method#connect#0;class#lecturerTabsCont#0" />
+            <element signature="method#disconnect#0;class#lecturerTabsCont#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="110" column="11" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+          <folding>
+            <element signature="n#task#0;n#tasks#0;n#!!top" />
+            <element signature="n#node#1;n#children#0;n#node#0;n#task#0;n#tasks#0;n#!!top" />
+            <element signature="n#task#1;n#tasks#0;n#!!top" />
+            <element signature="n#node#0;n#task#1;n#tasks#0;n#!!top" />
+            <element signature="n#task#2;n#tasks#0;n#!!top" />
           </folding>
         </state>
       </provider>

@@ -13,7 +13,13 @@
 
 <MigPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.lecturerTabsCont">
     <children>
-        <MigPane prefHeight="800.0" prefWidth="800.0" layout="fill">
+        <MigPane prefHeight="20.0" prefWidth="800.0" MigPane.cc="dock north" layout="wrap 2, fill">
+         <children>
+             <JFXButton text="" visible="false" mnemonicParsing="false" MigPane.cc="dock west" />
+             <JFXButton fx:id="btnLogOut" mnemonicParsing="false" text="LogOut" MigPane.cc="dock east" style="-fx-background-color: #85c1e9;" />
+         </children>
+        </MigPane>
+        <MigPane layout="fill" prefHeight="800.0" prefWidth="800.0" MigPane.cc="dock center">
             <children>
                 <JFXTabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" MigPane.cc="span,grow">
                     <tabs>
@@ -21,14 +27,14 @@
                             <content>
                                 <MigPane layout="fill, wrap2" prefHeight="600.0" prefWidth="400.0">
                                     <children>
-                                        <MigPane layout="fill,wrap" MigPane.cc="dock west" prefHeight="600.0" prefWidth="400.0">
+                                        <MigPane layout="fill,wrap" prefHeight="600.0" prefWidth="400.0" MigPane.cc="dock west">
                                             <children>
-                                                <JFXListView fx:id="lstMods" prefHeight="600.0" prefWidth="400.0" MigPane.cc="growy,spany"/>
+                                                <JFXListView fx:id="lstMods" prefHeight="600.0" prefWidth="400.0" MigPane.cc="growy,spany" />
                                             </children>
                                         </MigPane>
-                                        <MigPane layout="fill,wrap" MigPane.cc="dock east" prefHeight="600.0" prefWidth="400.0">
+                                        <MigPane layout="fill,wrap" prefHeight="600.0" prefWidth="400.0" MigPane.cc="dock east">
                                             <children>
-                                                <JFXListView fx:id="lstTasks"  prefHeight="560.0" prefWidth="400.0" />
+                                                <JFXListView fx:id="lstTasks" prefHeight="560.0" prefWidth="400.0" />
                                                 <MigPane layout="fill, wrap2" prefHeight="30.0" prefWidth="400.0">
                                                     <JFXButton fx:id="btnNewTask" buttonType="RAISED" mnemonicParsing="false" style="-fx-background-color: #82e0aa;" text="New Task" MigPane.cc="dock west" />
                                                     <JFXButton fx:id="btnDelTask" buttonType="RAISED" mnemonicParsing="false" style="-fx-background-color: e36953;" text="Delete Task" MigPane.cc="dock east" />

@@ -11,7 +11,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.stage.Stage;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.ls.DOMImplementationLS;
+import org.w3c.dom.ls.LSOutput;
+import org.w3c.dom.ls.LSSerializer;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -25,7 +37,6 @@ public class newTaskCont implements Initializable {
     @FXML private Spinner<Integer>spnNo;
     @FXML private JFXButton btnSave;
     @FXML private JFXButton btnClose;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,6 +66,8 @@ public class newTaskCont implements Initializable {
                     stmtInsert.setString(4,lblModCode.getText());
                     stmtInsert.executeUpdate();
 
+                    //add task tab into tasks
+                    addXMLtask(txtCode.getText());
 
                     Alert alert=new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Status");
@@ -92,6 +105,73 @@ public class newTaskCont implements Initializable {
             if(oldValue)
                 txtTitle.validate();
         });
+    }
+
+    private void addXMLtask(String taskCode){
+        try {
+            DocumentBuilderFactory fac=DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder=fac.newDocumentBuilder();
+            Document doc=builder.parse("tasks.xml");
+
+            //root Element
+            Element rootElem=doc.getDocumentElement();
+            System.out.println(rootElem.getTagName());
+            buildTask(taskCode,rootElem,doc);
+            saveDoc(doc,"tasks.xml");
+
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void buildTask(String code,Element rootElem, Document doc) throws Exception {
+        Element taskElem=doc.createElement("task");
+        taskElem.setAttribute("id",code);
+
+        Element mainChild=doc.createElement("node");
+        mainChild.setAttribute("no","0");
+
+        Element quesElem=doc.createElement("question");
+        mainChild.appendChild(quesElem);
+
+        Element ansElem=doc.createElement("answer");
+        mainChild.appendChild(ansElem);
+
+        Element childrenElem=doc.createElement("children");
+        mainChild.appendChild(childrenElem);
+
+        taskElem.appendChild(mainChild);
+
+        rootElem.appendChild(taskElem);
+    }
+    private void saveDoc(Document doc, String filename) throws Exception {
+        // obtain serializer
+        DOMImplementation impl = doc.getImplementation();
+        DOMImplementationLS implLS = (DOMImplementationLS) impl.getFeature("LS", "3.0");
+        LSSerializer ser = implLS.createLSSerializer();
+        ser.getDomConfig().setParameter("format-pretty-print", true);
+
+        // create file to save too
+        FileOutputStream fout = new FileOutputStream(filename);
+
+        // set encoding options
+        LSOutput lsOutput = implLS.createLSOutput();
+        lsOutput.setEncoding("UTF-8");
+
+        // tell to save xml output to file
+        lsOutput.setByteStream(fout);
+
+        // FINALLY write output
+        ser.write(doc, lsOutput);
+
+        // close file
+        fout.close();
     }
 
     private void connect(){

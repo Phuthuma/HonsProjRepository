@@ -38,6 +38,7 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
         this.copyItem=copyItem;
         this.cont=cont;
 
+        //add menu item
         MenuItem addStud=new MenuItem("Add");
         addStud.setOnAction(event -> {
             Dialog dialog=new Dialog();
@@ -49,6 +50,14 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
             grid.setPadding(new Insets(20,150,10,10));
 
             TextField txtNo=new TextField();
+            txtNo.textProperty().addListener((observable, oldValue, newValue) -> {
+                if((newValue!=null)&&(!newValue.matches("\\d?"))){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Only numbers are accepted by this field!");
+                    alert.showAndWait();
+                }
+            });
             txtNo.setPromptText("Enter Node No.");
             TextArea txtQues=new TextArea("");
             txtQues.setPromptText("Enter Question");
@@ -70,7 +79,7 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
 
             Optional<ButtonType>result=dialog.showAndWait();
             if (result.get()==saveButtonType){
-                //add to xml file
+                //Add to xml file
                 DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
                 try {
                     DocumentBuilder builder=factory.newDocumentBuilder();
@@ -132,6 +141,7 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
         });
         menu.getItems().add(addStud);
 
+        //Copy menuItem
         MenuItem copyMenuItem=new MenuItem("Copy");
         copyMenuItem.setOnAction(event -> {
             copyItem.getChildren().clear();
@@ -140,14 +150,10 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
         });
         menu.getItems().addAll(copyMenuItem);
 
+        //Paste menuItem
         MenuItem pastItem=new MenuItem("Paste");
         pastItem.setOnAction(event -> {
             if (copyItem != null) {
-
-                /*getTreeView().getSelectionModel().getSelectedItem().getChildren().clear();
-                getTreeView().getSelectionModel().getSelectedItem().setValue(copyItem.getValue());
-                getTreeView().getSelectionModel().getSelectedItem().getChildren().addAll(copyItem.getChildren());*/
-
                 //add to xml file
                 DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
                 try {
@@ -203,6 +209,7 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
         });
         menu.getItems().add(pastItem);
 
+        //Delete menuItem
         MenuItem delItem=new MenuItem("Delete");
         delItem.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -223,8 +230,27 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
                         DocumentBuilder builder = factory.newDocumentBuilder();
                         doc = builder.parse("tasks.xml");
 
-                        while (doc.getDocumentElement().hasChildNodes())
-                            doc.getDocumentElement().removeChild(doc.getDocumentElement().getFirstChild());
+                        //need to query delete element
+                        XPathFactory xpFact=XPathFactory.newInstance();
+                        XPath path=xpFact.newXPath();
+
+                        String query="//task[@id='"+taskId+"']/node['1']";
+                        NodeList rootNode= (NodeList) path.evaluate(query,doc,XPathConstants.NODESET);
+                        NodeList list=rootNode.item(0).getChildNodes();
+
+                        org.w3c.dom.Node quesNode=list.item(1);
+                        Element quesElem= (Element) quesNode;
+                        quesElem.setTextContent("");
+
+                        org.w3c.dom.Node ansNode=list.item(3);
+                        Element ansElem= (Element) ansNode;
+                        ansElem.setTextContent("");
+
+                        org.w3c.dom.Node childrenNode=list.item(5);
+                        Element childrenElem= (Element) childrenNode;
+
+                        while (childrenElem.hasChildNodes())
+                            childrenElem.removeChild(childrenElem.getFirstChild());
 
                         saveDoc(doc,"tasks.xml");
                         getTreeView().getRoot().getChildren().clear();
@@ -331,28 +357,6 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
             elem.appendChild(newElem);
         }
     }
-    private void addDelChildNodes(Document doc, Element elem, ObservableList<TreeItem<Node>>treeItems){
-        for (TreeItem<Node>curItem:treeItems) {
-            Node curNode=curItem.getValue();
-
-            Element newElem=doc.createElement("node");
-            newElem.setAttribute("no",curNode.nodeNoProperty().getValue().toString());
-
-            Element quesElement=doc.createElement("question");
-            quesElement.setTextContent(curNode.questionProperty().getValue());
-            newElem.appendChild(quesElement);
-
-            Element ansElem=doc.createElement("answer");
-            ansElem.setTextContent(curNode.answerProperty().getValue());
-            newElem.appendChild(ansElem);
-
-            Element childrenElem=doc.createElement("children");
-            addChildNodes(doc,childrenElem,curItem.getChildren());
-            newElem.appendChild(childrenElem);
-
-            elem.appendChild(newElem);
-        }
-    }
     private static void saveDoc(Document doc, String filename) throws Exception {
         // obtain serializer
         DOMImplementation impl = doc.getImplementation();
@@ -375,18 +379,6 @@ public class TextFieldTreeCellImpl extends TreeCell<Node> {
 
         // close file
         fout.close();
-    }
-    private void addChildren(TreeItem<Node>copyItem, TreeItem<Node>pasteItem){
-        for(int i=0;i<copyItem.getChildren().size();i++){
-            TreeItem<Node>curItem=copyItem.getChildren().get(i);
-            TreeItem<Node>newItem=new TreeItem<>(new Node(curItem.getValue().nodeNoProperty().get(),
-                    curItem.getValue().questionProperty().get(),
-                    curItem.getValue().answerProperty().get()));
-            pasteItem.getChildren().add(newItem);
-            if(curItem.getChildren().size()>0){
-                addChildren(curItem,newItem);
-            }
-        }
     }
     @Override
     public void startEdit() {

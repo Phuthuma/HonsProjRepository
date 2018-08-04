@@ -131,7 +131,6 @@ public class newLectCont implements Initializable {
 
     }
 
-
     private boolean validEmail(){
         Pattern p=Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
         Matcher m=p.matcher(txtEmail.getText());
