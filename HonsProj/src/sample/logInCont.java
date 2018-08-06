@@ -126,6 +126,7 @@ public class logInCont implements Initializable {
                                 cont.initialize(loader.getLocation(),loader.getResources());
                                 Stage newStage=new Stage();
                                 newStage.setScene(new Scene(parent));
+                                newStage.setTitle("Modules");
                                 newStage.setHeight(800.0);
                                 newStage.setWidth(800.0);
                                 Stage primeStage= (Stage) ((Node)event.getSource()).getScene().getWindow();

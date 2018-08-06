@@ -48,7 +48,6 @@ public class newModuleCont implements Initializable {
             if(!newValue)
                 txtCode.validate();
         });
-
         txtName.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if(oldValue){
                 txtName.getValidators().add(valReq);

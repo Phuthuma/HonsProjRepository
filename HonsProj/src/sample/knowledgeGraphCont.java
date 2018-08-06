@@ -67,6 +67,10 @@ public class knowledgeGraphCont implements Initializable {
                 txtAns.textProperty().bindBidirectional(newValue.getValue().answerProperty());
             }
         });
+        txtAns.setTooltip(new Tooltip("Add or edit the parent node's answer"));
+        txtQuest.setTooltip(new Tooltip("Add or edit node question"));
+        Tooltip tooltip=new Tooltip("Right-click to add node or edit knowledge graph");
+        treeKnow.setTooltip(tooltip);
         treeKnow.getSelectionModel().selectFirst();
     }
 
