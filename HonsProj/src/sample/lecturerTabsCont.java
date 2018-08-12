@@ -83,12 +83,15 @@ public class lecturerTabsCont implements Initializable {
                     knowledgeGraphCont cont = loader.<knowledgeGraphCont>getController();
                     cont.setLblTreeTitle(lstTasks.getSelectionModel().getSelectedItem().titleProperty().get());
                     cont.setLblTaskId(lstTasks.getSelectionModel().getSelectedItem().taskIdProperty().get());
+                    cont.setUname(lblCode.getText());
                     cont.initialize(loader.getLocation(), loader.getResources());
                     Stage newStage = new Stage();
                     newStage.setTitle("Knowledge Graph");
                     newStage.setScene(new Scene(parent));
-                    newStage.setHeight(800.0);
-                    newStage.setWidth(800.0);newStage.showAndWait();
+                    newStage.setMaximized(true);
+                    Stage primeStage= (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
+                    primeStage.close();
+                    newStage.show();
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -106,6 +109,7 @@ public class lecturerTabsCont implements Initializable {
                     cont.setModCode(lstMods.getSelectionModel().getSelectedItem().modCodeProperty().get());
                     cont.initialize(loader.getLocation(), loader.getResources());
                     Stage newStage = new Stage();
+                    newStage.setTitle("New Task");
                     newStage.setScene(new Scene(parent));
                     newStage.setHeight(400.0);
                     newStage.setWidth(400.0);
@@ -130,45 +134,48 @@ public class lecturerTabsCont implements Initializable {
         });
         btnDelTask.setOnAction(event -> {
             String id=lstTasks.getSelectionModel().getSelectedItem().taskIdProperty().getValue();
-            Alert delAlert=new Alert(Alert.AlertType.CONFIRMATION);
-            delAlert.setTitle("Task Delete");
-            delAlert.setContentText("Are you sure you want to delete "+id+" ?");
-            Optional<ButtonType> result=delAlert.showAndWait();
-            if(result.get()==ButtonType.OK){
+            if(id!=null) {
+                Alert delAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                delAlert.setTitle("Task Delete");
+                delAlert.setContentText("Are you sure you want to delete " + id + " ?");
+                Optional<ButtonType> result = delAlert.showAndWait();
+                if (result.get() == ButtonType.OK) {
 
-                connect();
-                String sql="Delete from Task where TaskCode = ?";
-                try {
-                    PreparedStatement stmt=con.prepareStatement(sql);
-                    stmt.setString(1,id);
-                    stmt.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    connect();
+                    String sql = "Delete from Task where TaskCode = ?";
+                    try {
+                        PreparedStatement stmt = con.prepareStatement(sql);
+                        stmt.setString(1, id);
+                        stmt.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    disconnect();
+                    try {
+                        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                        DocumentBuilder builder = factory.newDocumentBuilder();
+                        Document doc = builder.parse(new File("tasks.xml"));
+                        delTaskFromXML(doc);
+                        saveDoc(doc, "tasks.xml");
+                    } catch (ParserConfigurationException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SAXException e) {
+                        e.printStackTrace();
+                    } catch (XPathExpressionException e) {
+                        e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    lstTasks.getItems().remove(lstTasks.getSelectionModel().getSelectedItem());
+
+
+                } else {
+                    delAlert.close();
                 }
-                disconnect();
-                try {
-                    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-                    DocumentBuilder builder=factory.newDocumentBuilder();
-                    Document doc=builder.parse(new File("tasks.xml"));
-                    delTaskFromXML(doc);
-                    saveDoc(doc,"tasks.xml");
-                } catch (ParserConfigurationException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (SAXException e) {
-                    e.printStackTrace();
-                } catch (XPathExpressionException e) {
-                    e.printStackTrace();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                lstTasks.getItems().remove(lstTasks.getSelectionModel().getSelectedItem());
+            }else {
 
-
-
-            }else{
-                delAlert.close();
             }
         });
         btnLogOut.setOnAction(event -> {
@@ -260,7 +267,7 @@ public class lecturerTabsCont implements Initializable {
         }
     }
 
-    private static void saveDoc(Document doc, String filename) throws Exception {
+    private void saveDoc(Document doc, String filename) throws Exception {
         // obtain serializer
         DOMImplementation impl = doc.getImplementation();
         DOMImplementationLS implLS = (DOMImplementationLS) impl.getFeature("LS", "3.0");

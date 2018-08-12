@@ -67,10 +67,7 @@ public class ModRegCont implements Initializable {
         setUpMods();
 
         lstMods.setItems(obsMods);
-        lstMods.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue.intValue()>=0)
-                index=newValue.intValue();
-        });
+
         lstMods.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
             if(oldValue!=null){
                 txtModCode.textProperty().unbindBidirectional(oldValue.modCodeProperty());
@@ -103,6 +100,7 @@ public class ModRegCont implements Initializable {
                 txtModName.textProperty().bindBidirectional(newValue.modNameProperty());
 
                 //changes in lecturer
+
                 connect();
                 try {
                     String sql="select * from Lecturer where LectCode = ?";
@@ -351,9 +349,6 @@ public class ModRegCont implements Initializable {
             // unfortunately, the event loses the currently selected item, so reselect it
             lstMods.getSelectionModel().select(index);
         }
-    }
-    public ObservableList<Module> getObsMods() {
-        return obsMods;
     }
 
     private void setUpLects(){

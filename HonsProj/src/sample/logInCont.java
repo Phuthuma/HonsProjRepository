@@ -45,6 +45,7 @@ public class logInCont implements Initializable {
     @FXML private JFXButton btnSignIn;
     @FXML private JFXButton lblForgot;
     @FXML private JFXButton lblSignIn;
+    @FXML private JFXButton lblChangePass;
 
     //methods
     @Override
@@ -99,7 +100,6 @@ public class logInCont implements Initializable {
                 e.printStackTrace();
             }
         });
-
         btnSignIn.setOnAction(event -> {
             //student
             if(cmbType.getSelectionModel().getSelectedItem().matches(obsTypes.get(0))){
@@ -116,7 +116,6 @@ public class logInCont implements Initializable {
                     if(result.next()){
                         String pass=result.getString("Password");
                         if(pass.matches(txtPass.getText())){
-
                             FXMLLoader loader=new FXMLLoader();
                             loader.setLocation(getClass().getResource("lecturerTabs.fxml"));
                             try {
@@ -127,15 +126,13 @@ public class logInCont implements Initializable {
                                 Stage newStage=new Stage();
                                 newStage.setScene(new Scene(parent));
                                 newStage.setTitle("Modules");
-                                newStage.setHeight(800.0);
-                                newStage.setWidth(800.0);
+                                newStage.setMaximized(true);
                                 Stage primeStage= (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 primeStage.close();
                                 newStage.show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-
                         }else {
                             Alert alert=new Alert(Alert.AlertType.ERROR);
                             alert.setTitle("Error");
@@ -179,8 +176,7 @@ public class logInCont implements Initializable {
                                 Stage newStage=new Stage();
                                 newStage.setTitle("Module Register");
                                 newStage.setScene(new Scene(parent));
-                                newStage.setHeight(800.0);
-                                newStage.setWidth(800.0);
+                                newStage.setMaximized(true);
                                 Stage primeStage= (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 primeStage.close();
                                 newStage.show();
@@ -214,6 +210,28 @@ public class logInCont implements Initializable {
             //validation error
             else {
 
+            }
+        });
+        lblChangePass.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("ChangePass.fxml"));
+            try {
+                Parent parent = loader.load();
+                changePassCont cont=loader.getController();
+                //cont.setUname(txtUname.getText());
+                cont.initialize(loader.getLocation(), loader.getResources());
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(parent));
+                newStage.setTitle("Change Password");
+                newStage.setResizable(false);
+                newStage.initModality(Modality.APPLICATION_MODAL);
+                newStage.initStyle(StageStyle.DECORATED);
+                newStage.setWidth(500.0);
+                newStage.setHeight(500.0);
+                newStage.showAndWait();
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }

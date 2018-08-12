@@ -1,110 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tasks>
-    <task id="wra301t120">
+    <task id="WRA301T1">
         <node no="0">
             <question/>
             <answer/>
             <children>
                 <node no="1">
-                    <question/>
-                    <answer/>
+                    <question>How do you traverse a DLL?</question>
+                    <answer>There is no answer</answer>
                     <children/>
-                </node>
-                <node no="0">
-                    <question/>
-                    <answer/>
-                    <children>
-                        <node no="1">
-                            <question/>
-                            <answer/>
-                            <children/>
-                        </node>
-                        <node no="2">
-                            <question/>
-                            <answer/>
-                            <children>
-                                <node no="3">
-                                    <question>mom</question>
-                                    <answer>whatever</answer>
-                                    <children/>
-                                </node>
-                            </children>
-                        </node>
-                    </children>
-                </node>
-            </children>
-        </node>
-    </task>
-    <task id="wrap302t1">
-        <node no="0">
-            <question/>
-            <answer/>
-            <children>
-                <node no="0">
-                    <question/>
-                    <answer/>
-                    <children>
-                        <node no="1">
-                            <question/>
-                            <answer/>
-                            <children>
-                                <node no="3">
-                                    <question/>
-                                    <answer/>
-                                    <children>
-                                    <node no="4">
-                                    <question>Where Is Qumbu Situated</question>
-                                    <answer/>
-                                    <children/>
-                                    </node>
-                                    </children>
-                                </node>
-                            </children>
-                        </node>
-                    </children>
-                </node>
-            </children>
-        </node>
-    </task>
-    <task id="WRC202T1">
-        <node no="0">
-            <question/>
-            <answer/>
-            <children>
-                <node no="1">
-                    <question/>
-                    <answer/>
-                    <children>
-                        <node no="2">
-                            <question>fd</question>
-                            <answer>dfg</answer>
-                            <children>
-                                <node no="0">
-                                    <question>dg</question>
-                                    <answer>dgdg</answer>
-                                    <children>
-                                    <node no="1">
-                                    <question/>
-                                    <answer/>
-                                    <children>
-                                    <node no="2">
-                                    <question>fd</question>
-                                    <answer>dfg</answer>
-                                    <children>
-                                    <node no="3">
-                                    <question>dg</question>
-                                    <answer>dgdg</answer>
-                                    <children/>
-                                    </node>
-                                    </children>
-                                    </node>
-                                    </children>
-                                    </node>
-                                    </children>
-                                </node>
-                            </children>
-                        </node>
-                    </children>
                 </node>
             </children>
         </node>

@@ -66,8 +66,4 @@ public class Node {
     public void setQuestion(String question) {
         this.question.set(question);
     }
-
-    public void addNode(Node node){
-        childern.add(node);
-    }
 }

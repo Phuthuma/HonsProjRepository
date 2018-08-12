@@ -1,13 +1,22 @@
 package sample;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeView;
 import com.sun.org.apache.xpath.internal.NodeSet;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType;
 import org.w3c.dom.Document;
@@ -25,7 +34,6 @@ import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class knowledgeGraphCont implements Initializable {
@@ -34,10 +42,14 @@ public class knowledgeGraphCont implements Initializable {
     private Label lblTaskId=new Label();
     private TreeItem<Node>copyItem;
 
+    private TextField txtUname=new TextField();
+
     @FXML private TreeView<Node> treeKnow;
     private TreeItem<Node>root;
     @FXML private TextArea txtAns;
     @FXML private TextArea txtQuest;
+    @FXML private JFXButton btnBack;
+    @FXML private JFXButton btnLogOut;
 
     //constructors
     @Override
@@ -57,24 +69,74 @@ public class knowledgeGraphCont implements Initializable {
                 return new TextFieldTreeCellImpl(copyItem,lblTaskId.getText(),knowledgeGraphCont.this);
             }
         });
+
+
         treeKnow.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(oldValue!=null){
                 txtQuest.textProperty().unbindBidirectional(oldValue.getValue().questionProperty());
-                txtAns.textProperty().unbindBidirectional(oldValue.getValue().questionProperty());
+                txtAns.textProperty().unbindBidirectional(oldValue.getValue().answerProperty());
             }
-            if(newValue!=null){
+
+            if(newValue !=null){
                 txtQuest.textProperty().bindBidirectional(newValue.getValue().questionProperty());
                 txtAns.textProperty().bindBidirectional(newValue.getValue().answerProperty());
             }
         });
-        txtAns.setTooltip(new Tooltip("Add or edit the parent node's answer"));
-        txtQuest.setTooltip(new Tooltip("Add or edit node question"));
+
         Tooltip tooltip=new Tooltip("Right-click to add node or edit knowledge graph");
         treeKnow.setTooltip(tooltip);
         treeKnow.getSelectionModel().selectFirst();
+
+        txtAns.setTooltip(new Tooltip("Add or edit the parent node's answer"));
+        txtQuest.setTooltip(new Tooltip("Add or edit node question"));
+
+        btnLogOut.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("logIn.fxml"));
+            try {
+                Parent parent = loader.load();
+                logInCont cont=loader.getController();
+                cont.initialize(loader.getLocation(), loader.getResources());
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(parent));
+                newStage.setTitle("Sign In");
+                newStage.setResizable(false);
+                newStage.initModality(Modality.APPLICATION_MODAL);
+                newStage.initStyle(StageStyle.DECORATED);
+                newStage.setWidth(800.0);
+                newStage.setHeight(800.0);
+                Stage primeStage= (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
+                primeStage.close();
+                newStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        btnBack.setOnAction(event -> {
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("lecturerTabs.fxml"));
+            try {
+                Parent parent=loader.load();
+                lecturerTabsCont cont=loader.<lecturerTabsCont>getController();
+                cont.setCode(txtUname.getText());
+                cont.initialize(loader.getLocation(),loader.getResources());
+                Stage newStage=new Stage();
+                newStage.setScene(new Scene(parent));
+                newStage.setTitle("Modules");
+                newStage.setMaximized(true);
+                Stage primeStage= (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
+                primeStage.close();
+                newStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     //methods
+    public void setUname(String uname){
+        txtUname.setText(uname);
+    }
     public void setUpNodes(){
         DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
         try {

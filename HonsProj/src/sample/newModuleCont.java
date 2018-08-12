@@ -76,6 +76,7 @@ public class newModuleCont implements Initializable {
             stage.initOwner(primeStage);
             stage.setScene(newScene);
             stage.initModality(Modality.WINDOW_MODAL);
+            stage.setTitle("New Lecturer");
             stage.setWidth(400.0);
             stage.setHeight(400.0);
             stage.showAndWait();
